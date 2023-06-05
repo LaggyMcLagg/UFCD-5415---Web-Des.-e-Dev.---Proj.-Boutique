@@ -1,0 +1,28 @@
+COMPONENTS:
+hero section examples  (front page frist thing the cliente sees)
+    https://getbootstrap.com/docs/5.0/examples/heroes/
+    https://www.apple.com/apple-events/event-stream/ 
+    https://www.tesla.com/
+
+    CTA call cto action, button for the user to do something
+
+
+NOTAS OPERACIONALIZAÇÂO:
+Layout/design
+    fazemos o nosso design, sacar ideias ao prof.
+        - temos de ter as mesmas funcionalidades
+        independentemente do sitio onde possam ficar
+        - adobe color (color theory)
+    tailwind mas não UI kits
+    site para fotos é o unsplashed
+    site para design e layouts Figma https://www.figma.com/
+    NAO TOCAR NO NOMA DE LOJA
+
+API:
+    ir ao git do prof buscar as cenas actualizadas
+
+DOC:
+    Enunciado ir buscar outravez
+
+Se ficarmos sem nada para fazer (hehehe):
+    STRIPE  é uma provider de pagamentos electronicos (visa)
