@@ -21,8 +21,5 @@ Layout/design
 API:
     ir ao git do prof buscar as cenas actualizadas
 
-DOC:
-    Enunciado ir buscar outravez
-
 Se ficarmos sem nada para fazer (hehehe):
     STRIPE  é uma provider de pagamentos electronicos (visa)
