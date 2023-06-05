@@ -4,7 +4,13 @@ hero section examples  (front page frist thing the cliente sees)
     https://www.apple.com/apple-events/event-stream/ 
     https://www.tesla.com/
 
-    CTA call cto action, button for the user to do something
+    CTA call to action, button for the user to do something
+
+PERGUNTAS AO CLIENTE:
+    -Galeria: é uma pagina ou pode ser uma
+    componente  em scroll dow no hero
+    -Fotos para o nosso site seram só da API?
+    então porque do unsplashed?
 
 
 NOTAS OPERACIONALIZAÇÂO:
