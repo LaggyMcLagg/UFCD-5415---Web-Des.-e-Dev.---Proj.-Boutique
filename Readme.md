@@ -1,5 +1,9 @@
 # Método de trabalho
 
+## Link para Trello
+
+https://trello.com/b/wGibnQF5/kanban-4-kirei
+
 ## Convenções nomeação
 
 - **Classes JS:**  SimpleClass || PokemonCenas (capitalizado, PascalCase);
