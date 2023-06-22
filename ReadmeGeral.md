@@ -1,6 +1,6 @@
 # Método de trabalho
 
-## Convenções nomeação:
+## Convenções nomeação
 
 - **Classes JS:**  SimpleClass || PokemonCenas (capitalizado, PascalCase);
 - **Funções || Métodos:** nomeFuncao (camelCase);
