@@ -8,7 +8,7 @@
 - **Components:**  Utilizador_Form ou Blog_Post (Snake_Case, maiusculas);
 - **Elementos Componentes:** li_element || td_element (snake_case, minusculas)
 - **Classes CSS:** nome-classe (kebab-case, minusculas);
-- **Id HTML:** Nome-Id-#  (kebab-case com terminação ' -# ' , maiusculas);
+- **Id HTML:** Nome-Id  (kebab-case com terminação ' -# ' , maiusculas);
 - **Variáveis logica:** utilizadores-Chave || lista-Tarefas (kebab-Camel-Case)
 
 ## Convenções comentação de cógido/funções DocBlocks
