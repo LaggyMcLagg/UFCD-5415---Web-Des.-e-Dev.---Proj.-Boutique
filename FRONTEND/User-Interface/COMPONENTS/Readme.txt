@@ -1,0 +1,1 @@
+Aqui ficam os componentes (não consegui criar o directório sem criar um ficheiro)
