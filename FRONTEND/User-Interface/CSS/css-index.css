@@ -1,0 +1,87 @@
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+.colours
+{
+    --text-color: black;
+    --box-color: rgb(0, 150, 187);
+}
+
+@media only screen and (max-width: 768px)
+{
+    .container
+    {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(255,165,0,0.3);
+    }
+    
+    .logo-class
+    {
+        width: 25%;
+        height: 50px;
+        margin: 5px;
+        background-color: aqua;
+        padding: 1em;
+        font-weight: 700;
+        color: var(--box-color);
+        justify-content: start;
+        border-radius: 5px;
+    }
+    
+    .searchbar-class
+    {
+        width: 25%;
+        height: 10px;
+        margin: 5px;
+        background-color: aqua;
+        padding: 1em;
+        font-weight: 700;
+        color: var(--box-color);
+        border-radius: 5px;
+    }
+    
+    .cart-class
+    {
+        width: 5%;
+        height: 10px;
+        margin: 5px;
+        background-color: aqua;
+        padding: 1em;
+        font-weight: 700;
+        color: var(--box-color);
+        border-radius: 5px;
+    }
+    
+    .menubutton-class
+    {
+        width: 5%;
+        height: 10px;
+        margin: 5px;
+        background-color: aqua;
+        padding: 1em;
+        font-weight: 700;
+        color: var(--box-color);
+        border-radius: 5px;
+    }
+    
+    .hero
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+        background-color: rgb(163, 98, 238);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
