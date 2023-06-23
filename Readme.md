@@ -2,18 +2,96 @@
 
 ## Link para Trello
 
-https://trello.com/b/wGibnQF5/kanban-4-kirei
+[Trello Kanban Kirei](https://trello.com/b/wGibnQF5/kanban-4-kirei).
 
 ## Convenções nomeação
 
-- **Classes JS:**  SimpleClass || PokemonCenas (capitalizado, PascalCase);
-- **Funções || Métodos:** nomeFuncao (camelCase);
-- **Ligação API:** _LigacaoApi (_PascalCase, variavél que recebe o .json da API);
-- **Components:**  Utilizador_Form ou Blog_Post (Snake_Case, maiusculas);
-- **Elementos Componentes:** li_element || td_element (snake_case, minusculas)
-- **Classes CSS:** nome-classe (kebab-case, minusculas);
-- **Id HTML:** Nome-Id  (kebab-case com terminação ' -# ' , maiusculas);
-- **Variáveis logica:** utilizadores-Chave || lista-Tarefas (kebab-Camel-Case)
+### Vídeo referência
+
+[![JavaScript Best Practices and Coding Conventions - Write Clean Code](https://i.ytimg.com/vi_webp/RMN_bkZ1KM0/maxresdefault.webp)](https://www.youtube.com/watch?v=RMN_bkZ1KM0 "JavaScript Best Practices and Coding Conventions - Write Clean Code")
+JavaScript Best Practices and Coding Conventions - Write Clean Code
+
+### Sumário
+
+- **Funções or Métodos JS:**  simpleClass || pokemonCenas (cammelCase);
+- **Classes:** ClassName || PokemonCenas (PascalCase);
+- **Variáveis:** utilizadoresChave || listaTarefas (camelCase);
+- **Constantes:** PI_VALLUE || HOURS_IN_DAY || IVA_VALUE (SNAKE_UPPER_CASE);
+- **Bool:** isValid || isGreen || isSold || isSet;
+
+*No video ele não tinha exemplos para css/html portanto fui buscar o exemplo do prof para classes e a sugestão da Inês para IDs*
+
+- **Classes CSS:** form-inscricao (lower-kebab-case);
+- **Id HTML:** User-Field-Id  (Upper-Kebab-Case);
+
+### Exemplos vídeo
+
+```JS
+// Variable naming
+const camelCase = '';
+let thisIsARandomCamelCaseName;
+let exampleFunctionNAme;
+let getUserCredentials;
+
+// Meaningfull names
+getUserData;
+getUserCredentials;
+getUserInfo;
+getUserPosts;
+
+// Favor descriptive over concise
+findUser; ❌
+
+findUserByNameOrEmail; ✅
+setUserLoggedInTrue; ✅
+
+// Use shorter version (concise) if unambiguous
+getUserFromDatabase; ❌
+
+getUser; ✅
+
+// Use consistent verbs per concept
+// Functions will usually create, read, update or delete something
+getQuestions;
+getUsers;
+
+// Make booleans that read well in if-then statements
+let car = {};
+
+isSedan, isSold, isGreen, hasAirbag
+
+car.isSedan; car.isSold; car.isGreen; car.hasAirbag;
+
+if (car.isSedan){
+    // ...
+}
+
+// Use PascalCase for ClassNames
+class Task = {}; ✅
+class task = {}; ❌
+
+// Capitalize values that are constant everywhere SNAKE UPPER CASE
+const SECONDS_IN_A_DAY = 86400;
+const HOURS_IN_A_DAY = 24;
+const PI_VALUE = 3.14;
+const IVA_VALUE = 0.23;
+
+// not all const are constant values
+const user = foundUser;
+const today = new Date();
+
+// Avoid one-letter variable names
+const query = () => {} ✅
+const date = () => new Date(); ✅
+
+const q = () => {} ❌
+const d = () => new Date(); ❌
+
+// unless in a cycle
+for (let i = 0; i < 10; i++) {
+    // ...
+}
+```
 
 ## Convenções comentação de cógido/funções DocBlocks
 
