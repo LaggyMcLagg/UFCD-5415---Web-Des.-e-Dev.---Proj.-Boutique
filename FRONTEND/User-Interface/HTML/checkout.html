@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\CSS\css-checkout.css">
+    <title>Checkout</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            Logo
+            <img title="logo" class="logo" id="Logo">
+        </div>
+
+        <!-- NavBar -->
+        <nav id="Navbar" class="item navbar" id="Navbar">
+            <div class="side-bar">
+                <div class="menu">
+                </div>
+            </div>>
+            <div id="Nav-Search-Bar" class="search-bar">
+                <label>Search</label>
+                <input id="Nav-Search-Placeholder" type="text" placeholder="Search">
+                <button id="Nav-Search-Button" type="submit">Search</button>
+            </div>
+            <div class="cart">Cart</div>
+        </nav>
+
+        <!-- Cart Items  -->
+        <div class="item product" id="Product">
+
+            <div class="small-container cart-page">
+                <table id="Product-Table" class="product-table">
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>SubTotal</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="Cart-Info" class="cart-info">
+                                <img title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\woman-shirt-01.jpg">
+                                <div>
+                                    <p>Plain White Shirt</p>
+                                    <small>Price: €20.00</small>
+                                    <a href="">Remove</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td><input title="quantity" type="number" value="1"></td>
+                        <td>€20.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="cart-info">
+                                <img title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\woman-shirt-01.jpg">
+                                <div>
+                                    <p>Plain White Shirt</p>
+                                    <small>Price: €20.00</small>
+                                    <a href="">Remove</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td><input title="quantity" type="number" value="1"></td>
+                        <td>€20.00</td>
+                    </tr>
+                </table>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="item coupon" id="Coupon">Coupon</div>
+        <div class="item checkout" id="Checkout">
+            <div class="total-price">
+                <table>
+                    <tr>
+                        <td>Total</td>
+                        <td>€40.00</td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+</body>
+</html>

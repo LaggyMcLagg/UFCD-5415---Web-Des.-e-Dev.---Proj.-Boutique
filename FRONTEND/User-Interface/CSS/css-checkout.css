@@ -1,0 +1,114 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(6,1fr);
+
+}
+
+.item {
+    border-style: solid;
+    border-color: rgb(188, 65, 188);
+    background-color: pink;
+    border-width: 10px;
+}
+
+@media (min-width:700px) {
+.navbar {
+        grid-area: 1 / 1 / -7 / 7  ;
+    }
+
+    .product {
+        grid-area: 2 / 1 / 7 / 5 ;
+    }
+
+    .coupon {
+        grid-area: 2 / 5 / 6 / 7;
+    }
+
+    .checkout {
+        grid-area: 6 / 5 / 6 / 7;
+    }
+}
+
+@media (max-width:700px) {
+    .navbar {
+        grid-area: 1 / 1 / -7 / 7  ;
+    }
+    
+    .product {
+        grid-area: 2 / 1 / 5 / 7 ;
+    }
+    
+    .coupon {
+        grid-area: 5 / 1 / 5 / 7;
+    }
+    
+    .checkout {
+        grid-area: 6 / 1 / 6 / 7;
+    }
+}
+
+/* cart Items */
+
+.cart-page {
+    margin: 8px auto;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-table th {
+    text-align: left;
+    padding: 5px;
+    color: white;
+    background: rgb(155, 87, 127);
+    font-weight: normal;
+}
+
+.product-table td {
+    padding: 10px 5px;
+
+}
+
+.product-table td input {
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.product-table td a {
+    color: rgb(155, 87, 127);
+    font-size: 12px;
+}
+
+.product-table td img {
+    width: 80px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+/* checkout */
+
+.total-price {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-price table {
+    border-top: 3px solid firebrick;
+    width: 100%;
+    max-width: 350px;
+}
