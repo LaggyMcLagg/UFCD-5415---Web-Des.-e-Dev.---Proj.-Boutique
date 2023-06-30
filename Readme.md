@@ -93,7 +93,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-## Convenções comentação de cógido/funções DocBlocks
+## Convenções comentação de cógido/funções DocBlocs
 
 - **Classes :**
 
