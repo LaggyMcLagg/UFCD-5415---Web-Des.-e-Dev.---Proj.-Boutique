@@ -8,7 +8,7 @@ body{
     height: 100vh;
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: repeat(6,1fr);
-
+    overflow: auto;
 }
 
 .item {
@@ -55,6 +55,10 @@ body{
 }
 
 /* cart Items */
+.small-container {
+    height: 100%;
+    overflow: auto;
+}
 
 .cart-page {
     margin: 8px auto;
@@ -100,15 +104,26 @@ body{
     margin-right: 10px;
 }
 
+/* Coupon */
+
+.coupon-position {
+    padding-bottom: 300px;
+    padding-top: 30px;
+}
+
 /* checkout */
 
 .total-price {
     display: flex;
     justify-content: flex-end;
+    align-self: end;
 }
 
 .total-price table {
     border-top: 3px solid firebrick;
     width: 100%;
     max-width: 350px;
+    text-align: right;
 }
+
+
