@@ -3,14 +3,20 @@
 *
 * Esta função serve como um controlador geral para o side panel. Abre e fecha o side panel através de event listeners.
 * È reactiva ao tamanho do side panel caso este mude com o user a fazer resize à janela.
+*
+****************************************************************
 * ATENÇÃO: 
 * - utilizar os IDs definidos e CLASSES CSS para correcta utilização deste controlador
 * - carregar este .js depois de criados/gerados todos os elementos HTML
+****************************************************************
 *
 * @var sideBarWidth: Irá conter o valor de largura do side panel.
 *
 * @var sidePanel: aponta para o elemento html do side panel
+*
+****************************************************************
 * ATENÇÃO NO HTML usar id="Side-Panel" na div que encapsular o side panel
+****************************************************************
 *
 * @var isOpen: boolean para saber se o elemento html panel está aberto, atravez da prop css "left"
 *
@@ -20,18 +26,18 @@
 * @var isInsideSidebar: boolean para verificar se é a sidebar
 *
 * @var isHamburger: boolean para verificar se é o icone hamburger
-* ATENÇÃO NO HTML usar id="Hamburger-Button" no elemento hambuguer buton
+*
+****************************************************************
+* ATENÇÃO NO HTML usar id="Hamburger-Button" no elemento hamburguer button
+****************************************************************
 *
 * @function updateSideBarWidth: define o valor de width do sidepanel com que o controlador está a trabalhar
-* é estabelecido com o carregar da página e actualizado sempre que o user fizer risize. Isto a antever
+* é estabelecido com o carregar da página e actualizado sempre que o user fizer resize. Isto a antever
 * responsividade do layout
 *
-* @function toggleSidePanel: Verifca se o side pannel está aberto atravéz da prop css "left" e faz togle em concordância
+* @function toggleSidePanel: Verifca se o side pannel está aberto atravéz da prop css "left" e faz toggle em concordância
 *
-* @class "close": Esta classe de css deverá ser colocada no elemento que se utilizar como CRUZ para encerrar.
-*Sendo utilizada dentro desta função para apontar para esse elemento e adicionar a funcionalidade para fechar o modal.
-*
-* @class "side-panel": IMPLEMENTAR esta classe css com o elemento div que contem o modal.
+* @class "side-panel": IMPLEMENTAR esta classe css com o elemento div que contem o side panel.
 * propriedades css iportantes:
 *   - "left" tem de ser definido com o valor negativo da width (para as várias media queries)
 *   - "transition" permite o slide in, mudar a gosto.
@@ -83,6 +89,8 @@ document.addEventListener('click', (event) => {
   
     // Tem de ser assim para ele correr as heranças dos elementos 
     // até encontrar os elementos que estamos à procura se estiver-mos no scope
+    // e se não encontrar os elentos, chega ao DOM e o clickedElement 
+    // fica a NULL e pára pq não há mais parents
     while (clickedElement && !isInsideSidebar && !isHamburger) {
       isInsideSidebar = clickedElement.id === 'Side-Panel';
       isHamburger = clickedElement.id === 'Hamburger-Button';
