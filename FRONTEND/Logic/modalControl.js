@@ -2,76 +2,57 @@
 * MODAL CONTROL
 *
 * Esta função serve como um controlador geral para modais. Abre e fecha o modal através de event listeners.
-* Apenas precisa de um modal de destino trocancando a foto que o utilizador quer vizualizar
 * ATENÇÃO: 
 * - utilizar os IDs definidos e CLASSES CSS para correcta utilização deste controlador
 * - carregar este .js depois de criados/gerados todos os elementos HTML
 *
-* @var openModalElements: Vai receber uma lista de todos os elementos que foram criados com o id Open-Modal-Element
-* para depois ser utilizada para atribuir a cada um deles o seu próprio event listner para abrir um modal com a sua foto
-****************************************************************
-*ATENÇÃO NO HTML usar id="Open-Modal-Element" na div que encapsular o elemento que abre o modal
-****************************************************************
+* @var modal: aponta para o elemento html que encapsula o conteudo do modal
+*ATENÇÃO NO HTML usar id="Modal" na div que encapsular o conteudo do modal
 *
-* @var modal: aponta para o elemento html que encapsula o modal
-****************************************************************
-*ATENÇÃO NO HTML usar id="Modal" na div que encapsular o modal
-****************************************************************
+* @var openModalElement: aponta para o elemento html que dá a ordem para abrir o modal
+*ATENÇÃO NO HTML usar id="Open-Modal-Element" na div que encapsular o elemento que abre
 *
-* @var closeElement: aponta para o elemento html que dá a ordem de fecho do modal a cruz no canto superior direito
-****************************************************************
-*ATENÇÃO NO HTML usar id="Close" no elemento que dá a ordem de fecho do modal
-****************************************************************
-*
-* @var modalContent: aponta para o elemento html que encapsula o conteudo do modal
-****************************************************************
-*ATENÇÃO NO HTML usar id="Modal-Content" na div que encapsular o conteudo do modal
-****************************************************************
+* @var closeElement: aponta para o elemento html que dá a ordem de fecho do modal
 *
 * @function openModal: torna visivel o modal esta função é activada por um click event listener
-* indo buscar a imagem em que o utilizador carreguou atravez da prop css bg-image atribuindo-a no modal
 *
 * @function closeModal: torna invisivel o modal esta função é activada por um click event listener
 *
+* @class "close": Esta classe de css deverá ser colocada no elemento que se utilizar como CRUZ para encerrar.
+*Sendo utilizada dentro desta função para apontar para esse elemento e adicionar a funcionalidade para fechar o modal.
+*
 * @class "modal": IMPLEMENTAR esta classe css com o elemento div que contem o modal.
-* propriedades css iportantes:
-*   - "display" tem de ser definido com o valor none por defeito
-*   - restantes é com o design
 // .modal {
 //     display: none;
+//     position: fixed;
+//     z-index: 1;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//     height: 100%;
+//     overflow: auto;
+//     background-color: rgba(0, 0, 0, 0.5);
 //   }
 *
 * @return: N/A
 */
 
-const openModalElements = document.querySelectorAll("#Open-Modal-Element");
-
 const modal = document.getElementById("Modal");
 
-//aqui teve mesmo de ser com o qureyselector o getElementById nao funciona
-const closeElement = modal.querySelector("#Close");
+const openModalElement = document.getElementById("Open-Modal-Element");
 
-const modalContent = modal.querySelector("#Modal-Content");
+const closeElement = modal.querySelector(".close");
 
-function openModal(event) {
+function openModal() {
   modal.style.display = "block";
-
-   const card = event.currentTarget;
-   const backgroundImage = card.style.backgroundImage;
-
-   modalContent.style.backgroundImage = backgroundImage;
 }
 
 function closeModal() {
   modal.style.display = "none";
 }
 
-openModalElements.forEach((element) => {
-  element. addEventListener("click", openModal);
-})
-
+openModalElement.addEventListener("click", openModal);
 closeElement.addEventListener("click", closeModal);
-
 window.addEventListener("click", (event) => {
   if (event.target === modal) {
     closeModal();
