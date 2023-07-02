@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\CSS\css-index.css">
+    <link rel="stylesheet" href="..\CSS\css-gallery.css">
+    <script src="\FRONTEND\Logic\modalControl.js" defer></script>
     <script src="\FRONTEND\Logic\sidePanelControl.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    
     <header>
         <nav class="navbar-class">
             <div class="container">
@@ -24,11 +24,22 @@
                 </div>
             </div>
         </nav>
-        <div>
-            <img class ="hero "src="imagens/7200404711_1_1_1 (1).jpg" alt="">
-        </div>
-
     </header>
+        <div class="higghligsttitle-class"><h3>TITULO DESTAQUES</h3></div>
+        <div class="highlightsdiv-class">
+            <div class="highlight-class" id="Open-Modal-Element"></div>
+            <div class="highlight-class" id="Open-Modal-Element"></div>
+            <div class="highlight-class" id="Open-Modal-Element"></div>
+            <div class="highlight-class" id="Open-Modal-Element"></div>
+        </div>
+        
+        <div class="articlestitle-class"><h3>TITULO ARTIGOS</h3></div>
+        <div class="articlesdiv-class">
+            <div class="article-class" id="Open-Modal-Element"></div>
+            <div class="article-class" id="Open-Modal-Element"></div>
+            <div class="article-class" id="Open-Modal-Element"></div>
+            <div class="article-class" id="Open-Modal-Element"></div>
+        </div>
 
     <div class="side-panel" id="Side-Panel">
         <div class="side-panel-content">
@@ -39,6 +50,14 @@
           <span style='font-size:100px;'>&#9889;</span>
           <span style='font-size:100px;'>&#9889;</span>
           <span style='font-size:100px;'>&#9889;</span>
+        </div>
+      </div>
+
+      <div id="Modal" class="modal">
+        <div id="Modal-Content" class="modal-content">
+          <span id="Close" class="close">&times;</span>
+          <h2>Modal Title</h2>
+          <p>This is the content of the modal.</p>
         </div>
       </div>
 
