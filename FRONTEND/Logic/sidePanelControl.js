@@ -54,7 +54,14 @@
 *
 * @return: N/A
 */
+// UTILIZAR DO LADO DO HTML A QUANDO DA SUA CRIAÇÂO:
+// <script type="module">
+// import { initializeSidePanelControl } from './sidePanelControl.js';
+// initializeSidePanelControl();
+// </script>
 
+//DESCONMENTAR PARA IMPLEMENTAR (modulo ES6)
+// function initializeSidePanelControl() {
 let sideBarWidth = '';
 
 const sidePanel = document.getElementById('Side-Panel');
@@ -106,3 +113,6 @@ document.addEventListener('click', (event) => {
     }
 
 });
+// DESCONMENTAR PARA IMPLEMENTAR (modulo ES6)
+// }
+// export default initializeSidePanelControl;
