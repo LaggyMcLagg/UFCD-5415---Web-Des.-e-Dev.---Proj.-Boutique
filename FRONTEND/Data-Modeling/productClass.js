@@ -1,3 +1,29 @@
+/**
+* CLASS PRODUCT
+* 
+* Esta classe é usada para criar novos produtos a partir dos dados recebidos da API.
+* 
+* CONSTRUCTOR----------------------------------------------------
+* @class Product: A classe que representa um produto.
+* @constructor
+* @param {number} id: O ID do produto.
+* @param {string} name: O nome do produto.
+* @param {string} description: A descrição do produto.
+* @param {string} image: A URL da imagem do produto.
+* @param {number} price: O preço do produto.
+* @param {number} quantity: A quantidade do produto.
+* --------------------------------------------------------------- 
+* 
+* LOG STRING OUTPUT----------------------------------------------
+* @method output: Imprime as propriedades do produto via console.log.
+* --------------------------------------------------------------- 
+* 
+* TO OBJECT OUTPUT-----------------------------------------------
+* @method toObject: Retorna um objecto que representa o produto.
+* @returns {Object} Um objecto que representa o produto.
+* --------------------------------------------------------------- 
+*/
+
 class Product {
   constructor(id, name, description, image, price, quantity) {
     this.id = id;
