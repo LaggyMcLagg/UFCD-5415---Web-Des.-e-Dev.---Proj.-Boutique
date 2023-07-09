@@ -1,0 +1,39 @@
+body{
+    background-color: grey;
+}
+
+.img1{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.img2{
+    position: absolute;
+    right:0px;
+    width: 100vW;
+    height: 100vh;
+}
+
+.container{
+    position: relative;
+    margin: 0px;
+    width: 615px;
+    height: 615px;
+}
+
+.slide{
+    animation-name: slide;
+    animation-duration: 2000ms; 
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slide {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
