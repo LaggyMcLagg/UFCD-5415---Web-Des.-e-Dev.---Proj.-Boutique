@@ -8,23 +8,30 @@
 * --------------------------------------------------------------- 
 *
 * POST COUPON----------------------------------------------------
-* @function postCoupon: função que envia um código de cupão para a API e regista a resposta.
+* @async @function postCoupon: função que envia um código de cupão para a API e regista a resposta.
 * @param {string} couponCode: o código do cupão a ser enviado.
 * @returns {Promise} uma promise que, quando resolvida, regista a resposta da API.
 * --------------------------------------------------------------- 
 *
 * GET PRODUCTS---------------------------------------------------
-* @function getProducts: função que solicita uma lista de produtos à API e retorna os produtos como instâncias da classe Product.
-* @returns {Promise} uma promise que, quando resolvida, retorna um array de instâncias da classe Product.
+* @async @function getProducts: função que solicita uma lista de produtos à API e retorna os produtos como json.
+* @returns {Promise} uma promise que, quando resolvida, retorna um array de produtos em formato json.
+* nota: tem de ser assim pois o fetch à API tem de ser feito com o load do site e guardado localmente.
 * --------------------------------------------------------------- 
 *
 * POST CHECKOUT--------------------------------------------------
-* @function postCheckout: função que envia uma lista de produtos e um cupão para a API e regista a resposta.
+* @async @function postCheckout: função que envia uma lista de produtos e um cupão para a API e regista a resposta.
 * @param {Array} products: a lista de produtos a ser enviada.
 * @param {string} coupon: o cupão a ser enviado.
 * @returns {Promise} uma promise que, quando resolvida, regista a resposta da API.
 * --------------------------------------------------------------- 
 *
+* LOAD AND STORE PRODUCTS----------------------------------------
+* @async @event document.onload: é um evento que aciona a função loadProducts quando o documento é totalmente carregado.
+* @function loadProducts: função assíncrona que carrega os produtos da API e armazena-os na localStorage como uma string json.
+* nota: para ser armazenado loclamente o formato de objecto era perdido, logo tem de ser guardado como string json.
+* @returns {void} Nenhum valor de retorno.
+* ---------------------------------------------------------------
 */
 
 //API CONNECTION AND PRODUCT CLASS
@@ -33,7 +40,7 @@ import { Product } from "../../Data-Modeling/productClass.js"
 
 
   //POST COUPON
-  function postCoupon(couponCode) {
+  export function postCoupon(couponCode) {
     const couponJson = { "couponCode": couponCode };
   
     return makeRequests('/check-coupon', 'post', couponJson)
@@ -44,18 +51,16 @@ import { Product } from "../../Data-Modeling/productClass.js"
   }
   
   //GET PRODUCTS
-  function getProducts() {
+  export function getProducts() {
     return makeRequests('/products', 'get')
       .then(response => {
-        return response.map(
-          item => new Product(item.id, item.name, item.description, item.image, item.price, item.quantity)
-        );
+        return response
       })
       .catch(console.error);
   }
   
   //POST CHECKOUT
-  function postCheckout(products, coupon) {
+  export function postCheckout(products, coupon) {
     const checkoutPostJson = {
       "products": products,
       "coupon": coupon
@@ -68,30 +73,64 @@ import { Product } from "../../Data-Modeling/productClass.js"
       .catch(console.error);
   }
 
-//******************************************
-// TEST CALLS FOR API
-async function testApiConnection() {
-  console.log('Teste post postCoupon...');
-  const couponResponse = await postCoupon("IVMUSVV");
-  console.log(couponResponse);
-
-  console.log('Teste getProducts...');
-  const products = await getProducts();
-  products.forEach(product => product.output());
-
-  console.log('Teste postCheckout...');
-  const checkoutResponse = await postCheckout([
-    {
-      "id": 1,
-      "quantity": 2
-    },
-    {
-      "id": 2,
-      "quantity": 1
+  //LOAD AND STORE PRODUCTS
+  export async function loadProductsMain(){
+    document.addEventListener('DOMContentLoaded', (event) => {
+      loadProducts();
+    });
+  
+    async function loadProducts() {
+      const products = await getProducts();
+  
+      localStorage.setItem('products', JSON.stringify(products));
     }
-  ], "");
-  console.log(checkoutResponse);
-}
+  }
 
-testApiConnection();
+//******************************************
+// TEST CALLS FOR MAIN
+
+// loadProductsMain()
+
+// async function testApiConnection() {
+//   console.log('Teste post postCoupon...');
+//   const couponResponse = await postCoupon("IVMUSVV");
+//   console.log(couponResponse);
+
+//   console.log('Teste getProducts...');
+//   const products = await getProducts();
+//   console.log(products);
+
+//   console.log('Teste postCheckout...');
+//   const checkoutResponse = await postCheckout([
+//     {
+//       "id": 1,
+//       "quantity": 2
+//     },
+//     {
+//       "id": 2,
+//       "quantity": 1
+//     }
+//   ], "");
+//   console.log(checkoutResponse);
+
+//   console.log('Teste loadProducts...');
+//   const productsLoad = JSON.parse(localStorage.getItem('products'));
+//   if(productsLoad) {
+//     productsLoad.forEach(productData => {
+//       const product = new Product(
+//         productData.id, 
+//         productData.name, 
+//         productData.description, 
+//         productData.image, 
+//         productData.price, 
+//         productData.quantity
+//       );
+//       product.output();
+//     });
+//   } else {
+//     console.log('No products found in local storage.')
+//   }
+// }
+
+// testApiConnection();
 //******************************************************

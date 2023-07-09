@@ -52,7 +52,7 @@
 // </script>
 
 //DESCONMENTAR PARA IMPLEMENTAR (modulo ES6)
-// function initializeModalControl() {
+export async function initializeModalControl() {
   const openModalElements = document.querySelectorAll("#Open-Modal-Element");
 
   const modal = document.getElementById("Modal");
@@ -62,13 +62,17 @@
 
   const modalContent = modal.querySelector("#Modal-Content");
 
+  const modalAddCart = modal.querySelector("#Modal-Add-Cart");
+
   function openModal(event) {
     modal.style.display = "block";
 
     const card = event.currentTarget;
     const backgroundImage = card.style.backgroundImage;
+    const dataId = card.getAttribute("data-id");
  
     modalContent.style.backgroundImage = backgroundImage;
+    modalAddCart.setAttribute("data-id", dataId);
  }
 
 function closeModal() {
@@ -88,5 +92,4 @@ window.addEventListener("click", (event) => {
 });
 
 // DESCONMENTAR PARA IMPLEMENTAR (modulo ES6)
-// }
-// export default initializeModalControl;
+}

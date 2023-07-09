@@ -61,7 +61,7 @@
 // </script>
 
 //DESCONMENTAR PARA IMPLEMENTAR (modulo ES6)
-// function initializeSidePanelControl() {
+export function initializeSidePanelControl() {
 let sideBarWidth = '';
 
 const sidePanel = document.getElementById('Side-Panel');
@@ -114,5 +114,4 @@ document.addEventListener('click', (event) => {
 
 });
 // DESCONMENTAR PARA IMPLEMENTAR (modulo ES6)
-// }
-// export default initializeSidePanelControl;
+}
