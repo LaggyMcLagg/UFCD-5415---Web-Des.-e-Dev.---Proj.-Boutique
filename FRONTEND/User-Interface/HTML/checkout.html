@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\CSS\css-checkout.css">
-    <script src="../../Logic/testingStock.js" type="module" defer></script>
+    <script src="../COMPONENTS/checkoutButtons.js" type="module" defer></script>
     <title>Checkout</title>
 </head>
 <body>
@@ -25,92 +25,34 @@
 
         <!-- Cart Items  -->
         <div class="item product" id="Product">
-            <div class="small-container cart-page">
+
+
+            <script type="module">
+                import { table } from '../COMPONENTS/checkoutComponents.js';
+                table(); 
+            </script>
+            <!-- <div class="small-container cart-page">
                 <table id="Product-Table" class="product-table">
                     <tr>
                         <th>Product</th>
                         <th>Quantity</th>
                         <th>SubTotal</th>
                     </tr>
-                    <tr>
-                        <td>
-                            <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
-                                <div>
-                                    <p>Plain White Shirt</p>
-                                    <small id="Price">Price: €20.00</small>
-                                    <a id="Remove" href="">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button id="Sub-Button" type="button">-</button>
-                            <label id="Quantity-Label">1</label>
-                            <button id="Add-button" type="button">+</button>
-                        </td>
-                        <td id="Price-tag">€20.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
-                                <div>
-                                    <p>Plain White Shirt</p>
-                                    <small id="Price">Price: €20.00</small>
-                                    <a id="Remove" href="">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button id="Sub-Button" type="button">-</button>
-                            <label id="Quantity-Label">1</label>
-                            <button id="Add-button" type="button">+</button>
-                        </td>
-                        <td id="Price-tag">€20.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
-                                <div>
-                                    <p>Plain White Shirt</p>
-                                    <small id="Price">Price: €20.00</small>
-                                    <a id="Remove" href="">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button id="Sub-Button" type="button">-</button>
-                            <label id="Quantity-Label">1</label>
-                            <button id="Add-button" type="button">+</button>
-                        </td>
-                        <td id="Price-tag">€20.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
-                                <div>
-                                    <p>Plain White Shirt</p>
-                                    <small id="Price">Price: €20.00</small>
-                                    <a id="Remove" href="">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button id="Sub-Button" type="button">-</button>
-                            <label id="Quantity-Label">1</label>
-                            <button id="Add-button" type="button">+</button>
-                        </td>
-                        <td id="Price-tag">€20.00</td>
-                    </tr>
 
+                    <tr>
+                        <div id="itemInfo"></div>
+                        <button id="queiko" type="button">queiko</button>
+                    </tr>
                 </table>
-            </div>
+            </div> -->
         </div>
 
-        <div class="item coupon">
-            <div class="coupon-position">
+        <div class="item coupon" id="Coupon">
+            <script type="module">
+                import { searchCupons } from '../COMPONENTS/checkoutComponents.js';
+                searchCupons(); 
+            </script>
+            <!-- <div class="coupon-position">
                 <label>I have a coupon</label>
                 <input title="Coupon" tiid="Coupon" type="text">
             </div>
@@ -122,11 +64,15 @@
                         <td id="Total-Price">€40.00</td>
                     </tr>
                 </table>
-            </div>
+            </div> -->
         </div>
 
-        <div class="item checkout" id="Checkout"> 
-            <button id="Checkout-Button" type="button">Checkout</button>
+        <div class="item checkout" id="Checkout">
+            <script type="module">
+                import { checkButton } from '../COMPONENTS/checkoutComponents.js';
+                checkButton();
+            </script>
+            <!-- <button id="Checkout-Button" type="button">Checkout</button> -->
         </div>
 
     </div>
