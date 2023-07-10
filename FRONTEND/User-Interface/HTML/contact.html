@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\CSS\css-contact.css">
-    <title>Document</title>
+    <script src="../../Logic/verticalMenuControl.js" defer></script>
+    <title>About Us</title>
 </head>
 
 <body>
@@ -13,18 +14,32 @@
     <div class="container">
 
         <!-- NavBar -->
-        <nav id="Navbar" class="item navbar" id="Navbar">
-            <div class="side-bar">
-                <div class="menu">
+        <div class="item navbar" id="Navbar">
+            <nav>
+                <div class="navbar">
+                  <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                  </div>
+                  <ul class="horizontal-nav">
+                    <li><a href="index.html">LOGO</a></li>
+                    <li>
+                        <form>
+                            <input type="text" class="searchbar" placeholder="Search">
+                        </form>
+                    </li>
+                    <li><a href="checkout.html">Cart</a></li>
+                </ul>
+                  <ul class="menu">
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                    <li><a href="#">Item 4</a></li>
+                  </ul>
                 </div>
-            </div>>
-            <div id="Nav-Search-Bar" class="search-bar">
-                <label>Search</label>
-                <input id="Nav-Search-Placeholder" type="text" placeholder="Search">
-                <button id="Nav-Search-Button" type="submit">Search</button>
-            </div>
-            <div class="cart">Cart</div>
-        </nav>
+              </nav>
+        </div>
 
         <!-- About Us -->
 
@@ -57,8 +72,6 @@
             </div>
     
         </div>
-
-        
     </div>
 </body>
 

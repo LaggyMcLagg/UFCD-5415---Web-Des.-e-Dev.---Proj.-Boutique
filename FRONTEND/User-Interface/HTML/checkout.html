@@ -1,27 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="..\CSS\css-checkout.css">
     <script src="../../Logic/testingStock.js" type="module" defer></script>
+    <script src="../../Logic/verticalMenuControl.js" defer></script>
     <title>Checkout</title>
 </head>
+
 <body>
     <div class="container">
+
         <!-- NavBar -->
-        <nav id="Navbar" class="item navbar" id="Navbar">
-            <div class="side-bar">
-                <div class="menu">
+        <div class="item navbar" id="Navbar">
+            <nav>
+                <div class="navbar">
+                    <div class="hamburger">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                    <ul class="horizontal-nav">
+                        <li><a href="index.html">LOGO</a></li>
+                        <li>
+                            <form>
+                                <input type="text" class="searchbar" placeholder="Search">
+                            </form>
+                        </li>
+                        <li><a href="checkout.html">Cart</a></li>
+                    </ul>
+                    <ul class="menu">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                        <li><a href="#">Item 4</a></li>
+                    </ul>
                 </div>
-            </div>>
-            <div id="Nav-Search-Bar" class="search-bar">
-                <label>Search</label>
-                <input id="Nav-Search-Placeholder" type="text" placeholder="Search">
-                <button id="Nav-Search-Button" type="submit">Search</button>
+            </nav>
+        </div>
+
+        <!-- <div class="item navbar" id="Navbar">
+            <nav id="Navbar">
+                <ul>
+                    <li class="hamburger">
+                        <button id="Hamburger-Button">&#9776;</button>
+                    </li>
+                    <li><a href="index.html">LOGO</a></li>
+                    <li>
+                        <form>
+                            <input type="text" class="searchbar" placeholder="Search">
+                        </form>
+                    </li>
+                    <li><a href="checkout.html">Cart</a></li>
+                </ul>
+            </nav>
+            
+            <div class="side-panel">
+                <div class="menu-items" id="Side-Panel">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                    <li>Item 5</li>
+                </div>
             </div>
-            <div class="cart">Cart</div>
-        </nav>
+        </div> -->
 
         <!-- Cart Items  -->
         <div class="item product" id="Product">
@@ -35,7 +80,8 @@
                     <tr>
                         <td>
                             <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
+                                <img id="Shirt-Image" title="shirt-img"
+                                    src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
                                 <div>
                                     <p>Plain White Shirt</p>
                                     <small id="Price">Price: €20.00</small>
@@ -53,7 +99,8 @@
                     <tr>
                         <td>
                             <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
+                                <img id="Shirt-Image" title="shirt-img"
+                                    src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
                                 <div>
                                     <p>Plain White Shirt</p>
                                     <small id="Price">Price: €20.00</small>
@@ -71,7 +118,8 @@
                     <tr>
                         <td>
                             <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
+                                <img id="Shirt-Image" title="shirt-img"
+                                    src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
                                 <div>
                                     <p>Plain White Shirt</p>
                                     <small id="Price">Price: €20.00</small>
@@ -89,7 +137,8 @@
                     <tr>
                         <td>
                             <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
+                                <img id="Shirt-Image" title="shirt-img"
+                                    src="\..\..\..\LAYOUT_DESGIN\IMG-PHOTOS\woman-shirt-01.jpg">
                                 <div>
                                     <p>Plain White Shirt</p>
                                     <small id="Price">Price: €20.00</small>
@@ -125,10 +174,11 @@
             </div>
         </div>
 
-        <div class="item checkout" id="Checkout"> 
+        <div class="item checkout" id="Checkout">
             <button id="Checkout-Button" type="button">Checkout</button>
         </div>
 
     </div>
 </body>
+
 </html>
