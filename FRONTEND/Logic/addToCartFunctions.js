@@ -19,12 +19,12 @@
  */
 
 export function addToCart(productId) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || {};
-    const products = JSON.parse(localStorage.getItem('products'));
+    let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
+    const products = JSON.parse(sessionStorage.getItem('products'));
     const product = products.find(product => Number(productId) === product.id);
 
     //!!! DEBUG REMOVER NO FINAL !!!
-    // console.log(JSON.parse(localStorage.getItem('products')));
+    // console.log(JSON.parse(sessionStorage.getItem('products')));
     // console.log(product);
 
     if (!product) {
@@ -41,7 +41,7 @@ export function addToCart(productId) {
         return false;
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
+    sessionStorage.setItem('cart', JSON.stringify(cart));
 
     //!!! DEBUG REMOVER NO FINAL !!!
     // console.log(cart);

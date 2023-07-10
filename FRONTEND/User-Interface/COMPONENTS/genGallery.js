@@ -78,7 +78,7 @@ async function createNavbar() {
 }
 
 async function createHighlights() {
-    const productsLoad = JSON.parse(localStorage.getItem('products'));
+    const productsLoad = JSON.parse(sessionStorage.getItem('products'));
 
     let highlightedProducts = productsLoad.filter(productData => productData.highlight);
 
@@ -105,7 +105,7 @@ async function createHighlights() {
 }
 
 async function createArticles() {
-    const productsLoad = JSON.parse(localStorage.getItem('products'));
+    const productsLoad = JSON.parse(sessionStorage.getItem('products'));
 
     if (productsLoad) {
         let articles = `<div class="articlestitle-class"><h3>TITULO ARTIGOS</h3></div>`;
@@ -172,7 +172,7 @@ console.log('Load init');
 window.onload = async function() {
     console.log('Product loading');
     await loadProductsMain();
-    console.log(JSON.parse(localStorage.getItem('products')));
+    console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log('Modal loading');
     await createModal();
     console.log('Navbar loading');
@@ -188,5 +188,6 @@ window.onload = async function() {
     console.log('SidePanel cont init');
     await initializeSidePanelControl();
     console.log('Load complete');
-    console.log(JSON.parse(localStorage.getItem('products')));
+    console.log(JSON.parse(sessionStorage.getItem('products')));
+    console.log(JSON.parse(sessionStorage.getItem('cart')));
 };

@@ -27,7 +27,7 @@
 * --------------------------------------------------------------- 
 *
 * LOAD AND STORE PRODUCTS----------------------------------------
-* @function loadProducts: função assíncrona que carrega os produtos da API e armazena-os na localStorage como uma string json.
+* @function loadProducts: função assíncrona que carrega os produtos da API e armazena-os na sessionStorage como uma string json.
 * nota: para ser armazenado loclamente o formato de objecto era perdido, logo tem de ser guardado como string json.
 * @returns {void} Nenhum valor de retorno.
 * ---------------------------------------------------------------
@@ -75,7 +75,7 @@ import { Product } from "../../Data-Modeling/productClass.js"
   //LOAD AND STORE PRODUCTS
   export async function loadProductsMain(){
     const products = await getProducts();
-    localStorage.setItem('products', JSON.stringify(products));
+    sessionStorage.setItem('products', JSON.stringify(products));
   }
 
 //******************************************
@@ -106,7 +106,7 @@ import { Product } from "../../Data-Modeling/productClass.js"
 //   console.log(checkoutResponse);
 
 //   console.log('Teste loadProducts...');
-//   const productsLoad = JSON.parse(localStorage.getItem('products'));
+//   const productsLoad = JSON.parse(sessionStorage.getItem('products'));
 //   if(productsLoad) {
 //     productsLoad.forEach(productData => {
 //       const product = new Product(
