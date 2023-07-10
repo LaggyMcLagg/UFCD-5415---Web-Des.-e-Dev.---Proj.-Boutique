@@ -52,7 +52,6 @@
 * ---------------------------------------------------------------
 */
 
-
 import { loadProductsMain } from '../JSMAIN/main.js';
 import { initializeModalControl } from '../../Logic/modalControl.js';
 import { initializeSidePanelControl } from '../../Logic/sidePanelControl.js';
@@ -169,23 +168,25 @@ async function createModal() {
 }
 
 //!!! ATENÇÂO REMOVER CÓDIGO COMENTADO ANTES DE ENTREGA MANTENHO PARA FACILITAR DEBUG CASO NECESSÀRIO !!!
-// console.log('Load init');
+console.log('Load init');
 window.onload = async function() {
-    // console.log('Product loading');
+    console.log('Product loading');
     await loadProductsMain();
-    // console.log('Modal loading');
+    console.log(JSON.parse(localStorage.getItem('products')));
+    console.log('Modal loading');
     await createModal();
-    // console.log('Navbar loading');
+    console.log('Navbar loading');
     await createNavbar();
-    // console.log('SidePanel loading');
+    console.log('SidePanel loading');
     await createSidePanel();
-    // console.log('Highlights loading');
+    console.log('Highlights loading');
     await createHighlights();
-    // console.log('articles loading');
+    console.log('articles loading');
     await createArticles();
-    // console.log('Modal cont init');
+    console.log('Modal cont init');
     await initializeModalControl();
-    // console.log('SidePanel cont init');
+    console.log('SidePanel cont init');
     await initializeSidePanelControl();
-    // console.log('Load complete');
+    console.log('Load complete');
+    console.log(JSON.parse(localStorage.getItem('products')));
 };

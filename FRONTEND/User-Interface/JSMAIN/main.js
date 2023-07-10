@@ -27,7 +27,6 @@
 * --------------------------------------------------------------- 
 *
 * LOAD AND STORE PRODUCTS----------------------------------------
-* @async @event document.onload: é um evento que aciona a função loadProducts quando o documento é totalmente carregado.
 * @function loadProducts: função assíncrona que carrega os produtos da API e armazena-os na localStorage como uma string json.
 * nota: para ser armazenado loclamente o formato de objecto era perdido, logo tem de ser guardado como string json.
 * @returns {void} Nenhum valor de retorno.
@@ -75,15 +74,8 @@ import { Product } from "../../Data-Modeling/productClass.js"
 
   //LOAD AND STORE PRODUCTS
   export async function loadProductsMain(){
-    document.addEventListener('DOMContentLoaded', (event) => {
-      loadProducts();
-    });
-  
-    async function loadProducts() {
-      const products = await getProducts();
-  
-      localStorage.setItem('products', JSON.stringify(products));
-    }
+    const products = await getProducts();
+    localStorage.setItem('products', JSON.stringify(products));
   }
 
 //******************************************

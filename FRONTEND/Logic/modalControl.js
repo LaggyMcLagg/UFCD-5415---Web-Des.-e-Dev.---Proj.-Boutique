@@ -51,6 +51,8 @@
 // initializeModalControl();
 // </script>
 
+import { addToCart } from './addToCartFunctions.js';
+
 //DESCONMENTAR PARA IMPLEMENTAR (modulo ES6)
 export async function initializeModalControl() {
   const openModalElements = document.querySelectorAll("#Open-Modal-Element");
@@ -73,6 +75,11 @@ export async function initializeModalControl() {
  
     modalContent.style.backgroundImage = backgroundImage;
     modalAddCart.setAttribute("data-id", dataId);
+
+    modalAddCart.addEventListener('click', function() {
+      const productId = this.getAttribute('data-id');
+      addToCart(productId);
+  });
  }
 
 function closeModal() {
