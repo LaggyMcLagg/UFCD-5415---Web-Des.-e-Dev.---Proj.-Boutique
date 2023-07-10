@@ -1,6 +1,7 @@
 
 import { loadProductsMain } from '../JSMAIN/main.js';
 import { initializeSidePanelControl } from '../../Logic/sidePanelControl.js';
+import { applyBackgroundHero } from '../../Logic/cylceTroughPhotosFunction.js';
 
 async function createNavbar() {
     const navbar = `
@@ -55,6 +56,8 @@ console.log('Load init');
 window.onload = async function() {
     console.log('Product loading');
     await loadProductsMain();
+    console.log('Hero loading');
+    await applyBackgroundHero();
     console.log('Navbar loading');
     await createNavbar();
     console.log('SidePanel loading');
