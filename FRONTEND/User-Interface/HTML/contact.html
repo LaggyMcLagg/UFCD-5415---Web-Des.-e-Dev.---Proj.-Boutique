@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../Logic/verticalMenuControl.js" defer></script>
     <link rel="stylesheet" href="..\CSS\css-contact.css">
     <title>Document</title>
 </head>
@@ -13,52 +14,73 @@
     <div class="container">
 
         <!-- NavBar -->
-        <nav id="Navbar" class="item navbar" id="Navbar">
-            <div class="side-bar">
-                <div class="menu">
+        <div class="item navbar" id="Navbar">
+            <nav>
+                <div class="navbar">
+                    <div class="hamburger">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                    <ul class="horizontal-nav">
+                        <li><a href="index.html">LOGO</a></li>
+                        <li>
+                            <form>
+                                <input type="text" class="searchbar" placeholder="Search">
+                                <input type="submit" value="Submit">
+                            </form>
+                        </li>
+                        <li><a href="checkout.html">Cart</a></li>
+                    </ul>
+                    <ul class="menu">
+                        <li><a href="#">Item 1</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                        <li><a href="#">Item 4</a></li>
+                    </ul>
                 </div>
-            </div>>
-            <div id="Nav-Search-Bar" class="search-bar">
-                <label>Search</label>
-                <input id="Nav-Search-Placeholder" type="text" placeholder="Search">
-                <button id="Nav-Search-Button" type="submit">Search</button>
-            </div>
-            <div class="cart">Cart</div>
-        </nav>
+            </nav>
+        </div>
+
 
         <!-- About Us -->
 
         <div class="item about-us">
             <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem corrupti nesciunt unde, ut eius quia fugiat labore consequuntur harum sequi illum dolor, molestiae maiores excepturi rem! Laudantium provident minima tenetur ipsum quas nobis eius nostrum debitis veniam rerum! Odit non vero dolorum reiciendis officia dolore dolorem cum illum quos architecto quas maiores veritatis aut, ratione eos aperiam, unde voluptatem eum.</p>
-            
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem corrupti nesciunt unde, ut eius quia
+                fugiat labore consequuntur harum sequi illum dolor, molestiae maiores excepturi rem! Laudantium
+                provident minima tenetur ipsum quas nobis eius nostrum debitis veniam rerum! Odit non vero dolorum
+                reiciendis officia dolore dolorem cum illum quos architecto quas maiores veritatis aut, ratione eos
+                aperiam, unde voluptatem eum.</p>
+
             <br>
             <h3>Follow us on social media:</h3>
         </div>
 
         <!-- Contact -->
-        
-        <div class="item contact">
-            <h1>Contact Us</h1>
-            <form>
-                <label for="Name">First name:</label><br>
-                <input type="text" id="Name" name="name" value="Name"><br>
-                <label for="Email">Email:</label><br>
-                <input type="email" id="Email" name="Email" value="name@email.com"><br><br>
-                <label for="Message">Message:</label><br>
-                <textarea id="Message" rows="5" cols="40"></textarea><br><br>
-                <input type="submit" value="Submit">
-              </form>
-              
-              <br>
-              <div class="map">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.0634987829153!2d-8.688463584579383!3d41.220386679279855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2468ec3655d101%3A0x12cab54b20119109!2sATEC%20-%20Academia%20de%20Forma%C3%A7%C3%A3o%20(Matosinhos)!5e0!3m2!1sen!2spt!4v1688343102897!5m2!1sen!2spt"  width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-    
-        </div>
 
-        
+        <div class="item contact">
+            <div class="contact-container">
+                <h1>Contact Us</h1>
+                <form>
+                    <label for="Name">First name:</label><br>
+                    <input type="text" id="Name" name="name" value="Name"><br>
+                    <label for="Email">Email:</label><br>
+                    <input type="email" id="Email" name="Email" value="name@email.com"><br><br>
+                    <label for="Message">Message:</label><br>
+                    <textarea id="Message" rows="5" cols="40"></textarea><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+
+                <br>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.0634987829153!2d-8.688463584579383!3d41.220386679279855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2468ec3655d101%3A0x12cab54b20119109!2sATEC%20-%20Academia%20de%20Forma%C3%A7%C3%A3o%20(Matosinhos)!5e0!3m2!1sen!2spt!4v1688343102897!5m2!1sen!2spt"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
