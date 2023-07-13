@@ -103,6 +103,7 @@ async function createArticles() {
 
         if (searchIds) {
             filteredProducts = productsLoad.filter(product => Number(searchIds).includes(product.id));
+            sessionStorage.removeItem('search');
         }
 
         let articlesHTML = '<div class="articles-title-class"><h3>TITULO ARTIGOS</h3></div><div class="articles-div-class">';
