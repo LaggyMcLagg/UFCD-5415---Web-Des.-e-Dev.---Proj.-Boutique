@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/CssCheckout.css">
+    <script src="../JS/testingStock.js" type="module" defer></script>
+    <title>Checkout</title>
+</head>
+<body>
+    <div class="container">
+        <!-- NavBar -->
+        <nav id="Navbar" class="item navbar" id="Navbar">
+            <div class="side-bar">
+                <div class="menu">
+                </div>
+            </div>>
+            <div id="Nav-Search-Bar" class="search-bar">
+                <label>Search</label>
+                <input id="Nav-Search-Placeholder" type="text" placeholder="Search">
+                <button id="Nav-Search-Button" type="submit">Search</button>
+            </div>
+            <div class="cart">Cart</div>
+        </nav>
+
+        <!-- Cart Items  -->
+        <div class="item product" id="Product">
+            <div class="small-container cart-page">
+                <table id="Product-Table" class="product-table">
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>SubTotal</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="Cart-Info" class="cart-info">
+                                <img id="Shirt-Image" title="shirt-img" src="../IMG-PHOTOS/woman-shirt-01.jpg">
+                                <div>
+                                    <p>Plain White Shirt</p>
+                                    <small id="Price">Price: €20.00</small>
+                                    <a id="Remove" href="">Remove</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <button id="Sub-Button" type="button">-</button>
+                            <label id="Quantity-Label">1</label>
+                            <button id="Add-button" type="button">+</button>
+                        </td>
+                        <td id="Price-tag">€20.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="Cart-Info" class="cart-info">
+                                <img id="Shirt-Image" title="shirt-img" src="../IMG-PHOTOS/woman-shirt-01.jpg">
+                                <div>
+                                    <p>Plain White Shirt</p>
+                                    <small id="Price">Price: €20.00</small>
+                                    <a id="Remove" href="">Remove</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <button id="Sub-Button" type="button">-</button>
+                            <label id="Quantity-Label">1</label>
+                            <button id="Add-button" type="button">+</button>
+                        </td>
+                        <td id="Price-tag">€20.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="Cart-Info" class="cart-info">
+                                <img id="Shirt-Image" title="shirt-img" src="../IMG-PHOTOS/woman-shirt-01.jpg">
+                                <div>
+                                    <p>Plain White Shirt</p>
+                                    <small id="Price">Price: €20.00</small>
+                                    <a id="Remove" href="">Remove</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <button id="Sub-Button" type="button">-</button>
+                            <label id="Quantity-Label">1</label>
+                            <button id="Add-button" type="button">+</button>
+                        </td>
+                        <td id="Price-tag">€20.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="Cart-Info" class="cart-info">
+                                <img id="Shirt-Image" title="shirt-img" src="../IMG-PHOTOS/woman-shirt-01.jpg">
+                                <div>
+                                    <p>Plain White Shirt</p>
+                                    <small id="Price">Price: €20.00</small>
+                                    <a id="Remove" href="">Remove</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <button id="Sub-Button" type="button">-</button>
+                            <label id="Quantity-Label">1</label>
+                            <button id="Add-button" type="button">+</button>
+                        </td>
+                        <td id="Price-tag">€20.00</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="item coupon">
+            <div class="coupon-position">
+                <label>I have a coupon</label>
+                <input title="Coupon" tiid="Coupon" type="text">
+            </div>
+
+            <div class="total-price">
+                <table id="Price-table">
+                    <tr>
+                        <td>Total</td>
+                        <td id="Total-Price">€40.00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="item checkout" id="Checkout"> 
+            <button id="Checkout-Button" type="button">Checkout</button>
+        </div>
+
+    </div>
+</body>
+</html>

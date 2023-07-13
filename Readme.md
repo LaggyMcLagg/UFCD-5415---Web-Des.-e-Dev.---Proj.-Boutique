@@ -13,7 +13,7 @@ JavaScript Best Practices and Coding Conventions - Write Clean Code
 
 ### Sumário
 
-- **Funções or Métodos JS:**  simpleClass || pokemonCenas (cammelCase);
+- **Funções or Métodos JS:**  simpleClass || pokemonCenas (camelCase);
 - **Classes:** ClassName || PokemonCenas (PascalCase);
 - **Variáveis:** utilizadoresChave || listaTarefas (camelCase);
 - **Constantes:** PI_VALLUE || HOURS_IN_DAY || IVA_VALUE (SNAKE_UPPER_CASE);
