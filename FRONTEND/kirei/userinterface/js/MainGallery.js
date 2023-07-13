@@ -90,21 +90,28 @@ async function createHighlightsArea(){
     document.body.innerHTML += highlights;
 }
 
+/*!!! NOTA DEV TIAGO
+a galeria está a espera disto dentro da search, um array de IDs
+por exemplo [2, 1, 5]
+**/
 async function createArticles() {
+    const searchIds = JSON.parse(sessionStorage.getItem('search'));
     const productsLoad = JSON.parse(sessionStorage.getItem('products'));
 
     if (productsLoad) {
+        let filteredProducts = productsLoad;
+
+        if (searchIds) {
+            filteredProducts = productsLoad.filter(product => Number(searchIds).includes(product.id));
+        }
+
         let articlesHTML = '<div class="articles-title-class"><h3>TITULO ARTIGOS</h3></div><div class="articles-div-class">';
 
-        for (let i = 0; i < productsLoad.length; i++) {
+        for (let i = 0; i < filteredProducts.length; i++) {
             articlesHTML += `
-                <div class="article-class" id="Open-Modal-Element" style="background-image: url('${productsLoad[i].image}');" data-id="${productsLoad[i].id}">
+                <div class="article-class" id="Open-Modal-Element" style="background-image: url('${filteredProducts[i].image}');" data-id="${filteredProducts[i].id}">
                 </div>
             `;
-            articlesHTML += `
-            <div class="article-class" id="Open-Modal-Element" style="background-image: url('${productsLoad[i].image}');" data-id="${productsLoad[i].id}">
-            </div>
-        `;
         }
         
         articlesHTML += '</div>';
@@ -166,9 +173,12 @@ async function createModal() {
     document.body.innerHTML += modal;
 }
 
-//!!! ATENÇÂO REMOVER CÓDIGO COMENTADO ANTES DE ENTREGA MANTENHO PARA FACILITAR DEBUG CASO NECESSÀRIO !!!
+//!!! ATENÇÂO REMOVER CONSOLE LOGS ANTES DE ENTREGA MANTENHO PARA FACILITAR DEBUG CASO NECESSÀRIO !!!
 console.log('Load init');
 window.onload = async function() {
+
+    const searchResults = JSON.parse(sessionStorage.getItem('search'));
+
     console.log('Product loading');
     await loadProductsMain();
     console.log(JSON.parse(sessionStorage.getItem('products')));
@@ -178,12 +188,16 @@ window.onload = async function() {
     await createNavbar();
     console.log('SidePanel loading');
     await createSidePanel();
-    console.log('Highlights creating');
-    await createHighlightsArea();
+
+    if (searchResults === null) {
+        console.log('Highlights creating');
+        await createHighlightsArea();
+        console.log('Highlights loading');
+        await loadHighlights();
+    }
+    
     console.log('Articles creating');
     await createArticles();
-    console.log('Highlights loading');
-    await loadHighlights();
     console.log('Modal cont init');
     await initializeModalControl();
     console.log('SidePanel cont init');
@@ -191,4 +205,5 @@ window.onload = async function() {
     console.log('Load complete');
     console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log(JSON.parse(sessionStorage.getItem('cart')));
+    console.log(JSON.parse(sessionStorage.getItem('search')));
 };
