@@ -459,30 +459,71 @@ html, body
 
 /* MODAL */
 /* Sugestão de apresentação */
-
 .modal {
     display: none;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    position: center;
-    margin: 15% auto;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    margin: 5% auto;
     border: 1px solid #888;
     width: 80%;
     height: 80%;
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    box-sizing: border-box;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-name: animatetop;
     animation-duration: 0.4s
+}
+
+.close:hover{
+    cursor: pointer;
+}
+
+.close {
+    font-size: 30px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.star:hover{
+    cursor: pointer;
+}
+
+.star{
+    font-size: 20px;
+}
+
+.gray {
+    opacity: 0.5;
+}
+
+.normal {
+    opacity: 1;
+}
+
+.modal-end-container {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 @keyframes animatetop {
@@ -490,14 +531,13 @@ html, body
     to {top: 0; opacity: 1}
 }
 
-  /* SIDE PANEL */
-
-    .side-panel {
-        position: fixed;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background-color: #333;
-        color: #fff;
-        transition: 0.3s;
-    }
+/* SIDE PANEL */
+  .side-panel {
+      position: fixed;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: #fff;
+      transition: 0.3s;
+  }

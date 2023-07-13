@@ -91,7 +91,7 @@ async function createHighlightsArea(){
 }
 
 /*!!! NOTA DEV TIAGO
-a galeria está a espera disto dentro da search, um array de IDs
+a galeria está a espera disto dentro da sessionStorage 'search', um array de IDs
 por exemplo [2, 1, 5]
 **/
 async function createArticles() {
@@ -164,10 +164,17 @@ async function createModal() {
     const modal = `
     <div id="Modal" class="modal">
         <div id="Modal-Content" class="modal-content">
-            <span id="Close" class="close">&times;</span>
-            <h2>Modal Title</h2>
-            <p>This is the content of the modal.</p>
+        <span id="Close" class="close">&times;</span>
+
+        <div id="Modal-End-Container" class="modal-end-container">
+            <span class='star' data-star="1">&#11088;</span>
+            <span class='star' data-star="2">&#11088;</span>
+            <span class='star' data-star="3">&#11088;</span>
+            <span class='star' data-star="4">&#11088;</span>
+            <span class='star' data-star="5">&#11088;</span>
             <button id="Modal-Add-Cart">Add to Cart</button>
+        </div&#11088
+
         </div>
     </div>`;
     document.body.innerHTML += modal;
@@ -182,10 +189,10 @@ window.onload = async function() {
     console.log('Product loading');
     await loadProductsMain();
     console.log(JSON.parse(sessionStorage.getItem('products')));
-    console.log('Modal loading');
-    await createModal();
     console.log('Navbar loading');
     await createNavbar();
+    console.log('Modal loading');
+    await createModal();
     console.log('SidePanel loading');
     await createSidePanel();
 

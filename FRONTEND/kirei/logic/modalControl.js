@@ -28,72 +28,105 @@
 *ATENÇÃO NO HTML usar id="Modal-Content" na div que encapsular o conteudo do modal
 ****************************************************************
 *
+* @var modalAddCart: aponta para o elemento html botão para adicionar ao carrinho
+****************************************************************
+*ATENÇÃO NO HTML usar id="Modal-Add-Cart" no botão para adicionar ao carrinho
+****************************************************************
+*
+* @var ratingStars: aponta para o elemento span das estrelas para depois adicionar um event listener que de acordo com
+* a estrea em que o user carregar irá buscar o valor data-set dessa estrela e guardalo em memória local com o data-id 
+* do produto correspondente.
+****************************************************************
+*ATENÇÃO NO HTML usar class="star" nas span da estrela
+****************************************************************
 *
 * @function openModal: torna visivel o modal esta função é activada por um click event listener
 * indo buscar a imagem em que o utilizador carreguou atravez da prop css bg-image atribuindo-a no modal
 *
 * @function closeModal: torna invisivel o modal esta função é activada por um click event listener
 *
+* @function updateStarColors: recebe por parametro o valor de rating do artigo e preenche as estrelas conforme
 *
 * @class "modal": IMPLEMENTAR esta classe css com o elemento div que contem o modal.
 * propriedades css iportantes:
-*   - "display" tem de ser definido com o valor none por defeito
+*   - "display" tem de ser definido com o valor 'none' por defeito
 *   - restantes é com o design
 // .modal {
 //     display: none;
 //   }
 *
+* @classes sugestão implementação do modal consultar ficheiro ./userinterface/css/CssGallery.css lines'460 - 532'
+*
 * @return: N/A
 */
-// UTILIZAR DO LADO DO HTML A QUANDO DA SUA CRIAÇÂO:
-// <script type="module">
-// import { initializeModalControl } from './modalControl.js';
-// initializeModalControl();
-// </script>
 
 import { addToCart } from './addToCartFunctions.js';
 
 export async function initializeModalControl() {
-  const openModalElements = document.querySelectorAll("#Open-Modal-Element");
+    const openModalElements = document.querySelectorAll("#Open-Modal-Element");
+  
+    const modal = document.getElementById("Modal");
+  
+    const closeElement = modal.querySelector("#Close");
+  
+    const modalContent = modal.querySelector("#Modal-Content");
+  
+    const modalAddCart = modal.querySelector("#Modal-Add-Cart");
 
-  const modal = document.getElementById("Modal");
-
-  //aqui teve mesmo de ser com o qureyselector o getElementById nao funciona
-  const closeElement = modal.querySelector("#Close");
-
-  const modalContent = modal.querySelector("#Modal-Content");
-
-  const modalAddCart = modal.querySelector("#Modal-Add-Cart");
-
-  function openModal(event) {
-    modal.style.display = "block";
-
-    const card = event.currentTarget;
-    const backgroundImage = card.style.backgroundImage;
-    const dataId = card.getAttribute("data-id");
-
-    modalContent.style.backgroundImage = backgroundImage;
-    modalAddCart.setAttribute("data-id", dataId);
-
-    modalAddCart.addEventListener('click', function () {
-      const productId = this.getAttribute('data-id');
-      addToCart(productId);
-    });
-  }
-
-  function closeModal() {
-    modal.style.display = "none";
-  }
-
-  openModalElements.forEach((element) => {
-    element.addEventListener("click", openModal);
-  })
-
-  closeElement.addEventListener("click", closeModal);
-
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeModal();
+    const ratingStars = modal.querySelectorAll(".star");
+  
+    function updateStarColors(rating) {
+      ratingStars.forEach((star) => {
+          if (star.dataset.star <= rating) {
+              star.classList.remove('gray');
+              star.classList.add('normal');
+          } else {
+              star.classList.remove('normal');
+              star.classList.add('gray');
+          }
+      });
     }
-  });
+
+    function openModal(event) {
+      modal.style.display = "flex";
+  
+      const card = event.currentTarget;
+      const backgroundImage = card.style.backgroundImage;
+      const dataId = card.getAttribute("data-id");
+  
+      modalContent.style.backgroundImage = backgroundImage;
+      modalAddCart.setAttribute("data-id", dataId);
+  
+      modalAddCart.addEventListener('click', function () {
+        const productId = this.getAttribute('data-id');
+        addToCart(productId);
+      });
+
+      const rating = localStorage.getItem(`productRating-${dataId}`) || 0;
+      updateStarColors(rating);
+    }
+  
+    function closeModal() {
+      modal.style.display = "none";
+    }
+  
+    openModalElements.forEach((element) => {
+      element.addEventListener("click", openModal);
+    })
+  
+    closeElement.addEventListener("click", closeModal);
+  
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  
+    ratingStars.forEach((star) => {
+      star.addEventListener('click', function() {
+          const rating = this.dataset.star;
+          localStorage.setItem(`productRating-${modalAddCart.getAttribute("data-id")}`, rating);
+          updateStarColors(rating);
+      });
+    });
 }
