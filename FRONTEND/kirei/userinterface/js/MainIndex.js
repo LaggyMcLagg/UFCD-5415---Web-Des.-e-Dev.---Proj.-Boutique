@@ -83,7 +83,7 @@ export async function createFooter() {
             <a href="https://twitter.com/">Twitter</a>
             <a href="https://www.instagram.com/">Instagram</a>
         </div>
-    </footer>>`;
+    </footer>`;
     document.body.innerHTML += footer;
 }
 
