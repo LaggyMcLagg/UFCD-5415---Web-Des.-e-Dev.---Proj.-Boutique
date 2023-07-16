@@ -8,16 +8,11 @@
     <link rel="stylesheet" href="../CSS/CssContact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
     <script type="module" src="../../FRONTEND/kirei/logic/randomContacts.js"></script>
-
-
-
-
-
+    <script defer src="../../FRONTEND/kirei/logic/contactForm.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-
     <div class="container">
 
         <!-- NavBar -->
@@ -119,10 +114,7 @@
                     </div>
                 </div> -->
             </div>
-    
         </div>
-
-
 
 <!-- Contact -->
 
@@ -133,10 +125,16 @@
                 <div class="form-container">
                     <h3>Contact Us</h3>
                     <form action="" method="GET" class="contact-form">
-                        <input type="text" id="Name" placeholder="Your Name" required>
-                        <input type="email" name="" id="Email" placeholder="name@email.com" required>
-                        <textarea name="" id="TextBox" cols="30" rows="10" placeholder="Write your message here..."
-                            required></textarea>
+                        <label>Name</label>
+                        <input class="" type="text" id="Name" placeholder="Your Name">
+                        <div class="error-hint hidden">Insert a valid name.</div>
+                        <label>Email</label>
+                        <input class="" inputmode="email" name="" id="Email" placeholder="name@email.com">
+                        <div class="error-hint hidden">Insert a valid email.</div>
+                        <label>Message</label>
+                        <textarea class="" name="" id="TextBox" cols="30" rows="10" placeholder="Write your message here..."
+                        ></textarea>
+                        <div class="error-hint hidden">Please type a sentence.</div>
                         <input type="submit" value="Send" class="send-button">
                     </form>
                 </div>
@@ -149,9 +147,6 @@
             </div>
         </section>
     </div>
-
-
-
             <!-- <div class="contact-container">
                 <h1>Contact Us</h1>
                 <form>
