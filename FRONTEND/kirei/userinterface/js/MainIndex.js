@@ -5,7 +5,7 @@
 *
 * IMPORTS--------------------------------------------------------
 * @module loadProductsMain: Importado de './main.js', função para carregar produtos para a variável local no load da página, requisito de avaliação.
-* @module initializeSidePanelControl: Importado de '../../logic/sidePanelControl.js', função para funcionalidade do painel lateral.
+* @module initializeHamburgerMenu: Importado de '../../logic/sidePanelControl.js', função para funcionalidade do painel lateral.
 * @module applyBackgroundHero: Importado de '../../logic/cylceTroughPhotosFunction.js'.
 * --------------------------------------------------------------- 
 *
@@ -33,46 +33,39 @@
 * ---------------------------------------------------------------
 */
 import { loadProductsMain } from './main.js';
-import { initializeSidePanelControl } from '../../logic/sidePanelControl.js';
 import { applyBackgroundHero } from '../../logic/cylceTroughPhotosFunction.js';
+import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
 
 async function createNavbar() {
     const navbar = `
-    <header>
-        <nav class="navbar-class">
-            <div class="container">
-                <a href="index.html" class="logo-class">logo</a>
-                <div class="searchbar-class">
-                    <input type="text" class="searchinput-class" placeholder="Search">
-                    &#128269;
-                </div>
-                <div class="cartandmenu-class"></div>
-                <a href="./userinterface/html/checkout.html" class="cart-class">cart</a>
-                <div class="hamburger-class">
-                    <button id="Hamburger-Button">&#9776;</button>
-                </div>
+    <div class="item navbar" id="Navbar">
+    <nav>
+        <div class="navbar">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
             </div>
-        </nav>
-    </header>`;
-    document.body.innerHTML += navbar;
-}
-
-async function createSidePanel() {
-    const sidePanel = `
-    <div class="side-panel" id="Side-Panel">
-        <div class="side-panel-content">
-            <h2>Side Panel Content</h2>
-            <p>This will be the side panel content:</p>
-            <a href="./userinterface/html/gallery.html" class="cart-class">Gallery</a>
-            <a href="" class="cart-class">Contact us</a>
-            <p>It works</p>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
+            <ul class="horizontal-nav">
+                <li><a href="index.html">LOGO</a></li>
+                <li>
+                    <form>
+                        <input type="text" class="searchbar" placeholder="Search">
+                        <input type="submit" value="Submit">
+                    </form>
+                </li>
+                <li><a href="./userinterface/html/checkout.html">Cart</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="./userinterface/html/gallery.html">Galeria</a></li>
+                <li><a href="./userinterface/html/contact.html">Contact Us</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+            </ul>
         </div>
-    </div>`;
-    document.body.innerHTML += sidePanel;
+    </nav>
+</div>`;
+    document.body.innerHTML += navbar;
 }
 
 export async function createFooter() {
@@ -98,10 +91,8 @@ window.onload = async function() {
     await createNavbar();
     console.log('Footer loading');
     await createFooter();
-    console.log('SidePanel loading');
-    await createSidePanel();
     console.log('SidePanel controlador init');
-    await initializeSidePanelControl();
+    await initializeHamburgerMenu();
     console.log('Load complete products and cart report:');
     console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log(JSON.parse(sessionStorage.getItem('cart')));

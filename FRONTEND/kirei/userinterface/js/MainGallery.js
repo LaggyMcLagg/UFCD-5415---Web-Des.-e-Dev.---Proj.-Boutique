@@ -6,7 +6,7 @@
 * IMPORTS--------------------------------------------------------
 * @module loadProductsMain: importado de '../JSMAIN/main.js', função para carregar os produtos para variável local on page load requisito de avaliação.
 * @module initializeModalControl: importado de '../../Logic/modalControl.js', função para funcionalidade do modal.
-* @module initializeSidePanelControl: importado de '../../Logic/sidePanelControl.js', função para funcionalidade do painel lateral.
+* @module initializeHamburgerMenu: importado de '../../logic/initHamburgerMenu.js', função para funcionalidade do painel lateral.
 * --------------------------------------------------------------- 
 *
 * CREATE NAVBAR--------------------------------------------------
@@ -53,26 +53,37 @@
 
 import { loadProductsMain } from './main.js';
 import { initializeModalControl } from '../../logic/modalControl.js';
-import { initializeSidePanelControl } from '../../logic/sidePanelControl.js';
+import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
 
 async function createNavbar() {
     const navbar = `
-    <header>
-        <nav class="navbar-class">
-            <div class="container">
-                <a href="../../index.html" class="logo-class">logo</a>
-                <div class="searchbar-class">
-                    <input type="text" class="searchinput-class" placeholder="Search">
-                    &#128269;
-                </div>
-                <div class="cartandmenu-class"></div>
-                <a href="checkout.html" class="cart-class">cart</a>
-                <div class="hamburger-class">
-                    <button id="Hamburger-Button">&#9776;</button>
-                </div>
+    <div class="item navbar" id="Navbar">
+    <nav>
+        <div class="navbar">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
             </div>
-        </nav>
-    </header>`;
+            <ul class="horizontal-nav">
+                <li><a href="../../index.html">LOGO</a></li>
+                <li>
+                    <form>
+                        <input type="text" class="searchbar" placeholder="Search">
+                        <input type="submit" value="Submit">
+                    </form>
+                </li>
+                <li><a href="checkout.html">Cart</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="gallery.html">Galeria</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>`;
     document.body.innerHTML += navbar;
 }
 
@@ -143,24 +154,6 @@ async function loadHighlights() {
     }
 }
 
-async function createSidePanel() {
-    const sidePanel = `
-    <div class="side-panel" id="Side-Panel">
-        <div class="side-panel-content">
-            <h2>Side Panel Content</h2>
-            <p>This will be the side panel content:</p>
-            <a href="./gallery.html" class="cart-class">Gallery</a>
-            <a href="" class="cart-class">Contact us</a>
-            <p>It works</p>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
-        </div>
-    </div>`;
-    document.body.innerHTML += sidePanel;
-}
-
 async function createModal() {
     const modal = `
     <div id="Modal" class="modal">
@@ -194,8 +187,6 @@ window.onload = async function() {
     await createNavbar();
     console.log('Modal loading');
     await createModal();
-    console.log('SidePanel loading');
-    await createSidePanel();
 
     if (searchResults === null) {
         console.log('Highlights creating');
@@ -206,10 +197,10 @@ window.onload = async function() {
     
     console.log('Articles creating');
     await createArticles();
-    console.log('Modal cont init');
+    console.log('Modal control init');
     await initializeModalControl();
-    console.log('SidePanel cont init');
-    await initializeSidePanelControl();
+    console.log('SidePanel control init');
+    await initializeHamburgerMenu();
     console.log('Load complete');
     console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log(JSON.parse(sessionStorage.getItem('cart')));

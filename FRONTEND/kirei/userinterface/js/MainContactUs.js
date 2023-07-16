@@ -1,3 +1,4 @@
+import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
 
 async function createNavbar() {
     const navbar = `
@@ -10,7 +11,7 @@ async function createNavbar() {
                         <div class="line"></div>
                     </div>
                     <ul class="horizontal-nav">
-                        <li><a href="index.html">LOGO</a></li>
+                        <li><a href="../../index.html">LOGO</a></li>
                         <li>
                             <form>
                                 <input type="text" class="searchbar" placeholder="Search">
@@ -20,8 +21,8 @@ async function createNavbar() {
                         <li><a href="checkout.html">Cart</a></li>
                     </ul>
                     <ul class="menu">
-                        <li><a href="#">Item 1</a></li>
-                        <li><a href="#">Item 2</a></li>
+                        <li><a href="gallery.html">Galeria</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="#">Item 3</a></li>
                         <li><a href="#">Item 4</a></li>
                     </ul>
@@ -106,14 +107,7 @@ window.onload = async function (event) {
     await createAboutUs();
     console.log('contact loading');
     await createContact();
-
-    let hamburger = document.querySelector('.hamburger');
-    let menu = document.querySelector('.menu');
-    function toggleMenu(event) {
-        menu.classList.toggle('open');
-    }
-    if (hamburger && menu) {
-        hamburger.addEventListener('click', toggleMenu);
-    }
+    console.log('Hamburger init');
+    await initializeHamburgerMenu();
 };
 

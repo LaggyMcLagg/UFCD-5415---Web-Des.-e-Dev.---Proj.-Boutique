@@ -41,7 +41,10 @@
 ****************************************************************
 *
 * @function openModal: torna visivel o modal esta função é activada por um click event listener
-* indo buscar a imagem em que o utilizador carreguou atravez da prop css bg-image atribuindo-a no modal
+* indo buscar a imagem em que o utilizador carreguou atravez da prop css bg-image atribuindo-a ao modal
+* atribui ao botão add to cart o id do artigo atravez do data-id
+* em caso de click faz executa a função addToCart 
+* e caso esteja fora de stock ao carregar no botão faz disable e display da info correta
 *
 * @function closeModal: torna invisivel o modal esta função é activada por um click event listener
 *
@@ -99,7 +102,11 @@ export async function initializeModalControl() {
   
       modalAddCart.addEventListener('click', function () {
         const productId = this.getAttribute('data-id');
-        addToCart(productId);
+        const inStock= addToCart(productId);
+        if (!inStock){
+          modalAddCart.setAttribute("disabled", "disabled");
+          modalAddCart.textContent = "Out of stock";
+        }
       });
 
       const rating = localStorage.getItem(`productRating-${dataId}`) || 0;

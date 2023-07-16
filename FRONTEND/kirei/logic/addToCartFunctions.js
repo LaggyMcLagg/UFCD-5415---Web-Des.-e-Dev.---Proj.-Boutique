@@ -23,10 +23,6 @@ export function addToCart(productId) {
     const products = JSON.parse(sessionStorage.getItem('products'));
     const product = products.find(product => Number(productId) === product.id);
 
-    //!!! DEBUG REMOVER NO FINAL !!!
-    // console.log(JSON.parse(sessionStorage.getItem('products')));
-    // console.log(product);
-
     if (!product) {
         console.log(`Product with ID ${productId} not found.`);
         return false;
@@ -42,9 +38,6 @@ export function addToCart(productId) {
     }
 
     sessionStorage.setItem('cart', JSON.stringify(cart));
-
-    //!!! DEBUG REMOVER NO FINAL !!!
-    // console.log(cart);
 
     return true;
 }
