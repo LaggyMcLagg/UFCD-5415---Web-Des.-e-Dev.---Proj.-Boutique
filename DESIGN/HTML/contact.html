@@ -7,6 +7,12 @@
     <script src="../JS/verticalMenuControl.js" defer></script>
     <link rel="stylesheet" href="../CSS/CssContact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    <script type="module" src="../../FRONTEND/kirei/logic/randomContacts.js"></script>
+
+
+
+
+
     <title>Document</title>
 </head>
 
@@ -63,7 +69,7 @@
             <br>
             <h3>Follow us on social media:</h3>
             <div class="about-container">
-                <div class="card">
+                <!-- <div class="card">
                     <div class="content">
                         <div class="imgBx">
                             <img src="https://t3.ftcdn.net/jpg/02/22/85/16/360_F_222851624_jfoMGbJxwRi5AWGdPgXKSABMnzCQo9RN.jpg" alt="">
@@ -87,6 +93,7 @@
                         <div class="contentBx">
                             <h4>Ann Brown</h4>
                             <h5>Mannager</h5>
+                            <h6>Mannager</h6>
                         </div>
                         <div class="sci">
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -110,7 +117,7 @@
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
     
         </div>
@@ -125,10 +132,10 @@
             <div class="contact-container">
                 <div class="form-container">
                     <h3>Contact Us</h3>
-                    <form action="" class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" name="" id="" placeholder="name@email.com" required>
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Write your message here..."
+                    <form action="" method="GET" class="contact-form">
+                        <input type="text" id="Name" placeholder="Your Name" required>
+                        <input type="email" name="" id="Email" placeholder="name@email.com" required>
+                        <textarea name="" id="TextBox" cols="30" rows="10" placeholder="Write your message here..."
                             required></textarea>
                         <input type="submit" value="Send" class="send-button">
                     </form>
@@ -166,6 +173,7 @@
                 </div>
             </div> -->
         </div>
+        
     </div>
 </body>
 
