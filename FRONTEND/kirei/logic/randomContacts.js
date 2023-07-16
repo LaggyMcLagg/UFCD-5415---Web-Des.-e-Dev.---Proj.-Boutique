@@ -6,7 +6,7 @@ async function createCardUser() {
   let contContainer = document.querySelector('.about-container');
   
   usersList.forEach(user => {
-    let cardUser = ` 
+    const cardUser = ` 
     <div class="card">
       <div class="content">
         <div class="imgBx">
