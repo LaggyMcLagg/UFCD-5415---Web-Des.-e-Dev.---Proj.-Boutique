@@ -67,15 +67,40 @@ formEl.addEventListener('submit', (event) => {
     // JSON.parse(sessionStorage.getItem('products'))
     // console.log(JSON.parse(sessionStorage.getItem('products')))
 
-    let word = [];
+    let words = [];
+    let words2 = [];
 
-    names.forEach(name => {
-        word += name.name.split(' ');
-        word += ";";
+    names.map(name => {
+        words += name.name.split(' ');
+        // word += ";";
+        console.log("words: " + words)
+
+
+        console.log(words[0]);
+        // console.log(words.join)
+        // console.log(inputValue)
+
+        
+        // words.map(word => {
+        //     console.log("word: " + word);
+        // })
     });
+    words2 += words.split(',');
+    console.log("words2: " + words2[0]);
+
+
+    console.log(names[0].name)
+    console.log(words[0])
+    //nao consegui entender o porque do words[0] me devolver a primeira letra, mas a intenção era perber o porque e tentar acabar
+    console.log(words)
+    console.log(words.length)
+    
+    if(inputValue == words[0]){
+        console.log("YESSSSSSS!!!!");
+    }
 
     console.log(names);
-    console.log(word.split(';'));
+    // console.log(word.split(';'));
 })
 
 
