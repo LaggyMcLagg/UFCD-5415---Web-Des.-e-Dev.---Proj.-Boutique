@@ -1,8 +1,11 @@
-
 import { loadProductsMain } from './main.js';
-import { postCheckout } from './main.js';
-import { postCoupon } from './main.js';
-import { initializeSidePanelControl } from '../../logic/sidePanelControl.js';
+import {handleAdd} from '../../logic/checkoutLogic.js';
+import {handleRemove} from '../../logic/checkoutLogic.js';
+import {handleSubtract} from '../../logic/checkoutLogic.js';
+import {handleCoupon} from '../../logic/checkoutLogic.js';
+import {updateTotalPrice} from '../../logic/checkoutLogic.js';
+import {handleCheckout} from '../../logic/checkoutLogic.js';
+import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
 
 
 //!!!! FOR TESTING !!!!
@@ -16,209 +19,141 @@ const cart = {
 
 async function createNavbar() {
     const navbar = `
-    <header>
-        <nav class="navbar-class">
-            <div class="container">
-                <a href="../../index.html" class="logo-class">logo</a>
-                <div class="searchbar-class">
-                    <input type="text" class="searchinput-class" placeholder="Search">
-                    &#128269;
-                </div>
-                <div class="cartandmenu-class"></div>
-                <a href="checkout.html" class="cart-class">cart</a>
-                <div class="hamburger-class">
-                    <button id="Hamburger-Button">&#9776;</button>
-                </div>
+    <div class="item navbar" id="Navbar">
+    <nav>
+        <div class="navbar">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
             </div>
-        </nav>
-    </header>`;
-    document.body.innerHTML += navbar;
-}
-
-async function createSidePanel() {
-    const sidePanel = `
-    <div class="side-panel" id="Side-Panel">
-        <div class="side-panel-content">
-            <h2>Side Panel Content</h2>
-            <p>This is the side panel content.</p>
-            <p>It works</p>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
-            <span style='font-size:100px;'>&#9889;</span>
+            <ul class="horizontal-nav">
+                <li><a href="../../index.html">LOGO</a></li>
+                <li>
+                    <form>
+                        <input type="text" class="searchbar" placeholder="Search">
+                        <input type="submit" value="Submit">
+                    </form>
+                </li>
+                <li><a href="checkout.html">Cart</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="gallery.html">Galeria</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+            </ul>
         </div>
-    </div>`;
-    document.body.innerHTML += sidePanel;
+    </nav>
+</div>`;
+document.getElementById("Checkout-Container").innerHTML += navbar;
 }
 
 async function createCart() {
-
-    const products = JSON.parse(sessionStorage.getItem('products'));
     const cart = JSON.parse(sessionStorage.getItem('cart'));
-
-    if(Object.keys(cart).length === 0) {
-        const emptyCartMessage = `
+    const products = JSON.parse(sessionStorage.getItem('products'));
+    
+    if (Object.keys(cart).length === 0) {
+        document.getElementById("Checkout-Container").innerHTML += `
         <div class="item product" id="Product">
-            <div class="small-container cart-page">
-                <h1>Empty Cart, no Items selected</h1>
+            <div id="Cart-Container" class="small-container cart-page">
+                <h1>Cart is empty.</h1>
             </div>
-        </div>`;
-
-        document.body.innerHTML += emptyCartMessage;
-        return;
-    }
-
-    let cartContainer = `
+        </div>
+        `;
+    }else{
+        let cartProductsHtml = `
         <div class="item product" id="Product">
-            <div class="small-container cart-page">
-                <table id="Product-Table" class="product-table">
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>SubTotal</th>
-                    </tr>`;
-
-
-    for (const [productId, quantity] of Object.entries(cart)) {
-
-        const product = products.find(p => p.id == productId);
-
-        if (product) {
-            let cartItem = `
-                <tr id="product-row-${product.id}">
+        <div id="Cart-Container" class="small-container cart-page">
+            <table id="Product-Table" class="product-table">
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>SubTotal</th>
+                </tr>
+        `;
+    
+    
+        for (let productId in cart) {
+            let product = products.find(product => product.id == Number(productId));
+        
+            if (product) {
+                cartProductsHtml += `
+                <tr id="Cart-Info-${productId}">
                     <td>
-                        <div id="Cart-Info" class="cart-info">
-                            <img id="Shirt-Image" title="shirt-img" src="${product.imgSrc}">
+                        <div class="cart-info">
+                            <img id="Shirt-Image-${productId}" title="shirt-img" src="${product.image}">
                             <div>
                                 <p>${product.name}</p>
-                                <small id="Price">Price: €${Number(product.price).toFixed(2)}</small>
-                                <a id="Remove-${productId}" href="">Remove</a>
+                                <small id="Price-${productId}">Price: $${product.price}</small>
+                                <a id="Remove-${productId}" class="remove-btn" data-id="${productId}" href="#">Remove</a>
                             </div>
                         </div>
                     </td>
                     <td>
-                        <button id="Sub-Button-${product.id}" type="button">-</button>
-                        <label id="Quantity-Label-${product.id}">${quantity}</label>
-                        <button id="Add-button-${product.id}" type="button">+</button>
+                        <button id="Sub-Button-${productId}" class="subtract-btn" data-id="${productId}" type="button">-</button>
+                        <label id="Quantity-Label-${productId}" class="quantity-label" data-id="${productId}">${cart[productId]}</label>
+                        <button id="Add-Button-${productId}" class="add-btn" data-id="${productId}" type="button">+</button>
+                        <label id="Label-Out-Stock-${productId}"></label>
                     </td>
-                    <td id="Price-tag-${product.id}">€${(product.price * quantity).toFixed(2)}</td>
+                    <td id="Price-tag-${productId}">$${(parseFloat(product.price) * cart[productId]).toFixed(2)}</td>
                 </tr>`;
-
-            cartContainer += cartItem;
+            }
         }
-    }
-
-    cartContainer += `
-                </table>
-            </div>
-        </div>`;
-
-    document.body.innerHTML += cartContainer;
-}
-
-async function createCouponAndCheckout() {
-    let couponContainer = `
-        <div class="item coupon">
-            <div class="coupon-position">
-                <label>I have a coupon</label>
-                <input title="Coupon" id="Coupon" type="text">
-            </div>
-
-            <div class="total-price">
-                <table id="Price-table">
-                    <tr>
-                        <td>Total</td>
-                        <td id="Total-Price">€0.00</td>
-                    </tr>
+        cartProductsHtml += `
                 </table>
             </div>
         </div>
+        `;
+        document.getElementById("Checkout-Container").innerHTML +=  cartProductsHtml;
+    }
 
-        <button id="Checkout-Button" disabled>Checkout</button>
-        <label id="Feedback"></label>`;
-
-    document.body.innerHTML += couponContainer;
 }
 
-//!!! DEPOIS VER FORMA DE EXTRAIR FUNÇÔES PARA A LOGIC LAYER !!!
-async function setUpEventListeners() {
-    const cart = JSON.parse(sessionStorage.getItem('cart'));
-    const products = JSON.parse(sessionStorage.getItem('products'));
-    const productIds = Object.keys(cart);
+async function attachEventListenersCart() {
+    const removeBtns = document.querySelectorAll('.remove-btn');
+    removeBtns.forEach(btn => btn.addEventListener('click', handleRemove));
 
-    productIds.forEach(productId => {
-        const product = products.find(p => p.id == productId);
+    const addBtns = document.querySelectorAll('.add-btn');
+    addBtns.forEach(btn => btn.addEventListener('click', handleAdd));
 
-        if (!product) {
-            return;
-        }
+    const subtractBtns = document.querySelectorAll('.subtract-btn');
+    subtractBtns.forEach(btn => btn.addEventListener('click', handleSubtract));
+}
 
-        const addButton = document.getElementById(`Add-button-${productId}`);
-        const subButton = document.getElementById(`Sub-Button-${productId}`);
-        const removeAnchor = document.getElementById(`Remove-${productId}`);
+async function createCouponAndCheckout() {
+    const couponHtml = `
+    <div class="item coupon">
+        <div class="coupon-position">
+            <label>I have a coupon</label>
+            <input title="Coupon" id="Coupon" type="text">
+            <label id="Coupon-Label"></label>
+        </div>
+        <div class="total-price">
+            <table id="Price-table">
+                <tr>
+                    <td>Total</td>
+                    <td id="Total-Price"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="item checkout" id="Checkout"> 
+        <button id="Checkout-Button" type="button">Checkout</button>
+        <div id="Reciept"></div>
+    </div>
+    `;
 
-        addButton.addEventListener('click', function() {
-            let currentQuantity = cart[productId];
-            let productInStock = product.quantity;
-            if (currentQuantity < productInStock) {
-                currentQuantity++;
-                updateCart(productId, currentQuantity);
-                updateQuantity(productId, currentQuantity, product.price);
-            }
-        });
+    document.getElementById("Checkout-Container").innerHTML +=  couponHtml;
+    updateTotalPrice();
+}
 
-        subButton.addEventListener('click', function() {
-            let currentQuantity = cart[productId];
-            if (currentQuantity > 0) {
-                currentQuantity--;
-                updateCart(productId, currentQuantity);
-                updateQuantity(productId, currentQuantity, product.price);
-                if (currentQuantity == 0) {
-                    removeProduct(productId);
-                }
-            }
-        });
+async function attachEventListenersCheckout() {
+    const couponInput = document.querySelector('#Coupon');
+    couponInput.addEventListener('input', handleCoupon);
 
-        removeAnchor.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent default link click action
-            removeProduct(productId);
-            updateCart(productId, 0);
-        });
-    });
-
-    const couponInput = document.getElementById('Coupon');
-    const feedbackLabel = document.getElementById('Feedback');
-    const checkoutButton = document.getElementById('Checkout-Button');
-
-    couponInput.addEventListener("input", async () => {
-        const coupon = couponInput.value;
-        if (coupon) {
-            const response = await postCoupon(coupon);
-            if (response.success) {
-                checkoutButton.disabled = false;
-                const totalPrice = document.getElementById('Total-Price');
-                const originalPrice = parseFloat(totalPrice.textContent.substring(1)); 
-                const discount = response.discount / 100;
-                totalPrice.textContent = '€' + (originalPrice - originalPrice * discount).toFixed(2);
-            } else {
-                checkoutButton.disabled = true;
-                feedbackLabel.textContent = response.error;
-            }
-        } else {
-            checkoutButton.disabled = false;
-        }
-    });
-
-    checkoutButton.addEventListener("click", async () => {
-        const response = await postCheckout(products, couponInput.value);
-
-        if (response.success) {
-            feedbackLabel.textContent = response.message;
-            sessionStorage.removeItem('cart');
-        } else {
-            feedbackLabel.textContent = response.error;
-        }
-    });
+    const checkout = document.querySelector('#Checkout-Button');
+    checkout.addEventListener('click', handleCheckout);
 }
 
 
@@ -234,12 +169,11 @@ window.onload = async function() {
     await createCart();
     console.log('Coupon and checkout areas loading');
     await createCouponAndCheckout()
-    console.log('SidePanel loading');
-    await createSidePanel();
-    console.log('SidePanel cont init');
-    await initializeSidePanelControl();
+    console.log('SidePanel control init');
+    await initializeHamburgerMenu();
     console.log('Event listeners setup');
-    await setUpEventListeners();
+    await attachEventListenersCart();
+    await attachEventListenersCheckout()
     console.log('Load complete');
     console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log(JSON.parse(sessionStorage.getItem('cart')));
