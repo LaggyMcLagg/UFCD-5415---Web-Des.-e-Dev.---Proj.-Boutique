@@ -9,12 +9,12 @@ import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
 
 
 //!!!! FOR TESTING !!!!
-const cart = {
-    "1": 2,
-    "2": 1,
-    "3": 5
-  };
-  sessionStorage.setItem('cart', JSON.stringify(cart));
+// const cart = {
+//     "1": 2,
+//     "2": 1,
+//     "3": 5
+//   };
+//   sessionStorage.setItem('cart', JSON.stringify(cart));
 //--------------------------------------------------------
 
 async function createNavbar() {
