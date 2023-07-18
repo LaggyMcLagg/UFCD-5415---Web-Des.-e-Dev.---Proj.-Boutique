@@ -1,4 +1,5 @@
 import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
+import { createCardUser } from '../../logic/randomContacts.js'
 
 async function createNavbar() {
     const navbar = `
@@ -30,7 +31,9 @@ async function createNavbar() {
             </nav>
         </div>
     `;
+
     document.body.innerHTML += navbar;
+    
 }
 
 async function createBanner() {
@@ -56,7 +59,7 @@ async function createAboutUs() {
             <br>
             <h3>Follow us on social media:</h3>
             <div class="about-container">
-                
+
             </div>
     
         </div>
@@ -64,6 +67,8 @@ async function createAboutUs() {
 
     document.body.innerHTML += aboutUs;
 }
+
+createCardUser();
 
 async function createContact() {
     const contact = `
@@ -92,11 +97,10 @@ async function createContact() {
             </div>
         </div>
     `;
+
     document.body.innerHTML += contact;
 
 }
-
-
 
 window.onload = async function (event) {
     console.log('Navbar loading');
@@ -110,4 +114,3 @@ window.onload = async function (event) {
     console.log('Hamburger init');
     await initializeHamburgerMenu();
 };
-

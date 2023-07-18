@@ -1,11 +1,23 @@
 import getRandomUser from '../services/randomAPI.js';
 
-async function createCardUser() {
+export async function createCardUser() {
   const usersList = await getRandomUser();
 
   let contContainer = document.querySelector('.about-container');
+
+  let i = 1;
   
   usersList.forEach(user => {
+    let userRole;
+
+    if (i === 1) {
+      userRole = 'Manager';
+    } else if (i === 2) {
+      userRole = 'Sales';
+    } else {
+      userRole = 'Support';
+    }
+
     const cardUser = ` 
     <div class="card">
       <div class="content">
@@ -14,7 +26,7 @@ async function createCardUser() {
         </div>
         <div class="contentBx">
             <h4>${user.name}</h4>
-            <h5>Support</h5>
+            <h5>${userRole}</h5>
             <h5>${user.email}</h5>
         </div>
         <div class="sci">
@@ -25,10 +37,9 @@ async function createCardUser() {
       </div>
     </div>
     `;
-    contContainer.innerHTML += cardUser
+
+    i++;
+
+    contContainer.innerHTML += cardUser;
   });
 }
-
-createCardUser();
-
-export default createCardUser;
