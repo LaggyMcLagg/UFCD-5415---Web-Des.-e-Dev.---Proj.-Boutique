@@ -15,30 +15,20 @@
 * @returns {Promise} uma promise que, quando resolvida, cria a barra de navegação.
 * ---------------------------------------------------------------
 *
-* CREATE SIDEPANEL-----------------------------------------------
-* @async @function createSidePanel: função para criar o painel lateral e adicioná-lo ao corpo do documento.
-* @const {string} sidePanel: variável que contém a estrutura HTML do painel lateral.
-* @returns {Promise} uma promise que, quando resolvida, cria o painel lateral.
-* --------------------------------------------------------------- 
-*
 * CREATE FOOTER--------------------------------------------------
 * @function Footer: Função para criar o rodapé.
 * @returns {Promise} uma promise que, quando resolvida, cria o footer.
 * --------------------------------------------------------------- 
 *
-* WINDOW ONLOAD--------------------------------------------------
-* @async @event window.onload: evento que acciona várias funções quando a janela é totalmente carregada.
-* NOTA: ORDEM DE LOAD TEM DE SER AQUELA
-* @returns {Promise} uma promise que, quando resolvida, inicializa vários componentes do site e carrega os produtos.
-* ---------------------------------------------------------------
 */
+
+import '../css/CssIndex.css';
 import { loadProductsMain } from './main.js';
 import { applyBackgroundHero } from '../../logic/cylceTroughPhotosFunction.js';
-import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
+import { initializeHamburgerMenu } from '../../logic/initHamburgerMenu.js'
 
-async function createNavbar() {
-    const navbar = `
-    <div class="item navbar" id="Navbar">
+function createNavbar() {
+    document.getElementById('Navbar').innerHTML = `
     <nav>
         <div class="navbar">
             <div class="hamburger">
@@ -63,37 +53,31 @@ async function createNavbar() {
                 <li><a href="#">Item 4</a></li>
             </ul>
         </div>
-    </nav>
-</div>`;
-    document.body.innerHTML += navbar;
+    </nav>`;
 }
 
-export async function createFooter() {
-    const footer = `
-    <footer class="footer-class">
+export function createFooter() {
+    document.getElementById('Footer').innerHTML = `
         <div>
             <a href="https://facebook.com">FB</a>
             <a href="https://twitter.com/">Twitter</a>
             <a href="https://www.instagram.com/">Instagram</a>
-        </div>
-    </footer>`;
-    document.body.innerHTML += footer;
+        </div>`;
 }
 
-//!!! ATENÇÂO REMOVER CÓDIGO COMENTADO ANTES DE ENTREGA MANTENHO PARA FACILITAR DEBUG CASO NECESSÀRIO !!!
-console.log('Load init');
-window.onload = async function() {
+//IIFE (Immediatly Invoked Function Expression)
+(async () => {
+    console.log('Navbar loading');
+    createNavbar();
+    console.log('Footer loading');
+    createFooter();
+    console.log('Hero loading');
+    applyBackgroundHero(); // If this function returns a Promise it should be awaited
+    console.log('SidePanel controlador init');
+    initializeHamburgerMenu();
     console.log('Product loading');
     await loadProductsMain();
-    console.log('Hero loading');
-    await applyBackgroundHero();
-    console.log('Navbar loading');
-    await createNavbar();
-    console.log('Footer loading');
-    await createFooter();
-    console.log('SidePanel controlador init');
-    await initializeHamburgerMenu();
     console.log('Load complete products and cart report:');
     console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log(JSON.parse(sessionStorage.getItem('cart')));
-};
+})();

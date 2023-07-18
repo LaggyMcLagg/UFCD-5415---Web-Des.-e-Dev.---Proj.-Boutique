@@ -17,7 +17,7 @@
  *
  */
 
-export async function initializeHamburgerMenu() {
+export function initializeHamburgerMenu() {
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
 

@@ -1,5 +1,5 @@
 //poe esta funcção dentro do teu script que está a gerar a página e adapta
-export async function applyBackgroundHero() {
+export function applyBackgroundHero() {
     
     // existe uma forma mais simples mas não podemos importar módulos tem de ser a unha
     const portraitImages = ['../userinterface/photos/portrait/img1.jpg', '../userinterface/photos/portrait/img2.jpg', '../userinterface/photos/portrait/img3.jpg', '../userinterface/photos/portrait/img4.jpg', '../userinterface/photos/portrait/img5.jpg'];
@@ -27,11 +27,4 @@ export async function applyBackgroundHero() {
     window.addEventListener('resize', function() {
         setTimeout(applyBackground, 2000);
     });
-}
-
-//para executar a função com o primeiro load da página
-console.log('Load init');
-window.onload = async function() {
-    console.log('Hero loading');
-    await applyBackgroundHero();
 }
