@@ -167,7 +167,7 @@ async function createModal() {
             <span class='star' data-star="4">&#11088;</span>
             <span class='star' data-star="5">&#11088;</span>
             <button id="Modal-Add-Cart">Add to Cart</button>
-        </div&#11088
+        </div>
 
         </div>
     </div>`;

@@ -53,7 +53,7 @@ async function createCart() {
     const cart = JSON.parse(sessionStorage.getItem('cart'));
     const products = JSON.parse(sessionStorage.getItem('products'));
     
-    if (Object.keys(cart).length === 0) {
+    if (cart === null) {
         document.getElementById("Checkout-Container").innerHTML += `
         <div class="item product" id="Product">
             <div id="Cart-Container" class="small-container cart-page">
