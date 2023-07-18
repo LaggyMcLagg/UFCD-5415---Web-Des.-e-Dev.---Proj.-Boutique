@@ -1,3 +1,14 @@
+/* Root */
+
+:root {
+    --yellow: #ffd52e;
+    --grey: #c0c2c1;
+    --black: #070708;
+    --white: #ffffff;
+
+    --font-family-main: 'Neue-Helvetica', 'Helvetica', 'Arial', Sans-Serif;
+}
+
 /* Misc */
 
 body {
@@ -13,12 +24,64 @@ body {
     overflow-y: initial;
 }
 
-.item {
-    border-style: solid;
-    border-color: rgb(188, 65, 188);
-    background-color: pink;
-    border-width: 10px;
+
+
+/* Logo Animation */
+
+.logo-fill {
+    animation: fill 0.5s ease forwards 3.5s;
+
 }
+
+#Logo path:nth-child(5){
+    stroke-dasharray: 238px;
+    stroke-dashoffset: 238px;
+    animation: logo-ani 2s ease forwards 0.6s;
+}
+
+#Logo path:nth-child(6){
+    stroke-dasharray: 111px;
+    stroke-dashoffset: 111px;
+    animation: logo-ani 2s ease forwards 0.9s;
+
+}
+
+#Logo path:nth-child(7){
+    stroke-dasharray: 228px;
+    stroke-dashoffset: 228px;
+    animation: logo-ani 2s ease forwards 1.2s;
+
+}
+
+#Logo path:nth-child(8){
+    stroke-dasharray: 228px;
+    stroke-dashoffset: 228px;
+    animation: logo-ani 2s ease forwards 1.8s;
+
+}
+
+#Logo path:nth-child(9){
+    stroke-dasharray: 111px;
+    stroke-dashoffset: 111px;
+    animation: logo-ani 2s ease forwards 2.1s;
+
+}
+
+@keyframes logo-ani {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill {
+    from {
+        fill:transparent;
+    }
+    to {
+        fill: black;
+    }
+}
+
 
 /* Navbar */
 
@@ -33,7 +96,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     height: 10%;
-    gap: 400px;
+    gap: 100%;
 }
 
 .hamburger {
@@ -46,8 +109,8 @@ body {
     z-index: 2;
 }
 
-.line {
-    background-color: #fff;
+.hamburger .line {
+    background-color: var(--black);
     height: 3px;
     width: 100%;
     z-index: 1;
@@ -59,7 +122,7 @@ body {
     left: -250px;
     width: 255px;
     height: 100vh;
-    background-color: #a74e4e;
+    background-color: var(--white);
     padding-top: 200px;
     transition: left 0.3s ease-in-out;
     transform: translateX(-100%);
@@ -73,7 +136,7 @@ body {
 
 .menu li a {
     display: flex;
-    color: #fff;
+    color: var(--black);
     text-decoration: none;
     font-size: 18px;
 }
@@ -81,6 +144,48 @@ body {
 .open {
     left: 0;
     transform: translateX(0%);
+}
+
+.searchbar {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 2px 3px;
+}
+
+.searchbar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 8px 5px;
+    font-size: 15px;
+    color: var(--white);
+}
+
+::placeholder {
+    color: var(--white);
+}
+
+.searchbar button img{
+    width: 25px;
+}
+
+.searchbar button {
+    border: 0;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: var(--yellow);
+    cursor: pointer;
+}
+
+.cart-icon {
+    height: 30px;
+    width: 30px;
 }
 
 /* Contact us */
@@ -255,26 +360,43 @@ textarea.invalid {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        gap: 240px;
+        z-index: 1;
     }
 
+    /* .navbar .hamburger {
+        display: flex;
+        justify-items: right;
+    } */
+
     .banner {
-        grid-area: 2 / 1 / 2 / 7;
-        height: 200px;
+        grid-area: 1 / 1 / 2 / 7;
+        height: 100vh;
+        padding-left: 20px;
+        background-image: url("../IMG-PHOTOS/landscape/yellow-cloth-fields.jpg");
+        background-size: cover;
+        position: relative;
+    }
+
+    .banner .banner-effect {
+        position: absolute; left: 0; top: 0; width: 100%; height: 100vh;
         display: flex;
         align-items: center;
-        padding-left: 20px;
+        background-image: linear-gradient(transparent, var(--black));
     }
 
     .about-us {
         grid-area: 3 / 1 / 3 / 7;
         height: auto;
+        color: var(--white);
+        background-color: var(--black);
     }
 
     .contact {
         grid-area: 4 / 1 / 4 / 7;
         height: auto;
         padding: 10px;
+        color: var(--white);
+        background-color: var(--black);
     }
 
 }
@@ -319,17 +441,13 @@ textarea.invalid {
         gap: 5px;
     }
 
-    .horizontal-nav .searchbar {
-        width: 100px;
-    }
-
     .menu {
         position: fixed;
         top: -15px;
         left: -250px;
         width: 100vw;
         height: 100vh;
-        background-color: #a74e4e;
+        background-color:var(--white);
         padding-top: 200px;
         transition: left 0.3s ease-in-out;
         transform: translateX(-100%);
