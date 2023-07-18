@@ -124,6 +124,38 @@ body {
     height: 200px;
 }
 
+/* classes forms validation */
+
+.contact-form label {
+    display: block;
+    font-size: 100%;
+    margin-bottom: -1%;
+}
+
+.contact-form input {
+    padding: 10px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+input.invalid {
+    border: 1px solid red;
+}
+
+.error-hint {
+    color: red;
+}
+
+.hidden{
+    display: none;
+}
+
+textarea.invalid {
+    border: 1px solid red;
+}
+
+/* ///////////////////////////// */
+
 .map {
     grid-area: 1 / 2 / 3 / 3;
 }
