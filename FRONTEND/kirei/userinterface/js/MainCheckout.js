@@ -1,3 +1,50 @@
+/**
+* CHECKOUT.JS DOCUMENTAÇÃO
+*
+* Este script irá criar e formatar a página de checkout da loja.
+* 
+* IMPORTAÇÕES----------------------------------------------------
+* @module loadProductsMain: importado de './main.js', função para carregar os produtos para session storage ao carregar a página.
+* @module handleAdd: importado de '../../logic/checkoutLogic.js', função para adicionar produtos ao carrinho.
+* @module handleRemove: importado de '../../logic/checkoutLogic.js', função para remover produtos do carrinho.
+* @module handleSubtract: importado de '../../logic/checkoutLogic.js', função para subtrair produtos do carrinho.
+* @module handleCoupon: importado de '../../logic/checkoutLogic.js', função para pré-validar cupões.
+* @module updateTotalPrice: importado de '../../logic/checkoutLogic.js', função para atualizar o preço total em fumção de eventos na página.
+* @module handleCheckout: importado de '../../logic/checkoutLogic.js', função para lidar com o processo de checkout.
+* @module initializeHamburgerMenu: importado de '../../logic/initHamburgerMenu.js', função para inicializar o painel lateral.
+* ----------------------------------------------------------------
+*
+* CREATE NAVBAR--------------------------------------------------
+* @async @function createNavbar: função para criar a barra de navegação e adicioná-la ao corpo do documento.
+* @const {string} navbar: variável que contém a estrutura HTML da barra de navegação.
+* @returns {Promise} uma promise que, quando resolvida, cria a barra de navegação.
+* ---------------------------------------------------------------
+*
+* CREATE CART----------------------------------------------------
+* @async @function createCart: função para criar a estrutura do carrinho e adicioná-la ao container de checkout.
+* @const {object} cart: objeto que armazena os itens no carrinho recuperados da sessionStorage.
+* @const {Array} products: array de produtos recuperados da sessionStorage.
+* ----------------------------------------------------------------
+*
+* ATTACH EVENT LISTENERS CART-------------------------------------
+* @async @function attachEventListenersCart: função para configurar event listeners aos botões de adição, remoção e subtração do carrinho.
+* ----------------------------------------------------------------
+*
+* CREATE COUPON AND CHECKOUT--------------------------------------
+* @async @function createCouponAndCheckout: função para criar a área de validação de cupão e checkout e adicioná-la ao container de checkout.
+* ----------------------------------------------------------------
+*
+* TTACH EVENT LISTENERS CHECKOUT------------------------------
+* @async @function attachEventListenersCheckout: função para configurar event listeners ao campo de cupão e ao botão de checkout.
+* ----------------------------------------------------------------
+*
+* WINDOW ONLOAD---------------------------------------------------
+* @async @event window.onload: evento que aciona várias funções quando a janela é totalmente carregada.
+* NOTA: A ORDEM DE CARREGAMENTO DEVE SER AQUELA
+* @returns {Promise} uma promise que, quando resolvida, inicializa os vários componentes do site, carrega os produtos, e configura os event listeners.
+* ----------------------------------------------------------------
+*/
+
 import { loadProductsMain } from './main.js';
 import {handleAdd} from '../../logic/checkoutLogic.js';
 import {handleRemove} from '../../logic/checkoutLogic.js';
