@@ -15,5 +15,5 @@ export function searchProducts(event) {
 
     console.log(JSON.parse(sessionStorage.getItem('search')));
 
-    window.location.href = "../userinterface/html/gallery.html";
+    window.location.href = "/userinterface/html/gallery.html";
 }

@@ -1,4 +1,6 @@
 import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
+import { searchProducts } from '../../logic/searchFunction.js';
+
 
 async function createNavbar() {
     const navbar = `
@@ -13,10 +15,10 @@ async function createNavbar() {
                     <ul class="horizontal-nav">
                         <li><a href="../../index.html">LOGO</a></li>
                         <li>
-                            <form>
-                                <input type="text" class="searchbar" placeholder="Search">
-                                <input type="submit" value="Submit">
-                            </form>
+                        <form id="Search-Form">
+                            <input type="text" id="Searchbar" class="searchbar" placeholder="Search">
+                            <input type="submit" value="Submit">
+                        </form>
                         </li>
                         <li><a href="checkout.html">Cart</a></li>
                     </ul>
@@ -32,6 +34,11 @@ async function createNavbar() {
     `;
     document.body.innerHTML += navbar;
 }
+
+async function attachEventListenersSearch() {
+    document.querySelector("#Search-Form").addEventListener('submit', searchProducts);
+}
+
 
 async function createBanner() {
     const banner = `
@@ -109,5 +116,7 @@ window.onload = async function (event) {
     await createContact();
     console.log('Hamburger init');
     await initializeHamburgerMenu();
+    console.log('Attach EventListner Search');
+    await attachEventListenersSearch();
 };
 

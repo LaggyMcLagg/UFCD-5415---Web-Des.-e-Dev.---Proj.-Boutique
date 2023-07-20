@@ -6,6 +6,7 @@ import {handleCoupon} from '../../logic/checkoutLogic.js';
 import {updateTotalPrice} from '../../logic/checkoutLogic.js';
 import {handleCheckout} from '../../logic/checkoutLogic.js';
 import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
+import { searchProducts } from '../../logic/searchFunction.js';
 
 
 //!!!! FOR TESTING !!!!
@@ -30,10 +31,10 @@ async function createNavbar() {
             <ul class="horizontal-nav">
                 <li><a href="../../index.html">LOGO</a></li>
                 <li>
-                    <form>
-                        <input type="text" class="searchbar" placeholder="Search">
-                        <input type="submit" value="Submit">
-                    </form>
+                <form id="Search-Form">
+                    <input type="text" id="Searchbar" class="searchbar" placeholder="Search">
+                    <input type="submit" value="Submit">
+                </form>
                 </li>
                 <li><a href="checkout.html">Cart</a></li>
             </ul>
@@ -48,6 +49,11 @@ async function createNavbar() {
 </div>`;
 document.getElementById("Checkout-Container").innerHTML += navbar;
 }
+
+async function attachEventListenersSearch() {
+    document.querySelector("#Search-Form").addEventListener('submit', searchProducts);
+}
+
 
 async function createCart() {
     const cart = JSON.parse(sessionStorage.getItem('cart'));
@@ -174,6 +180,8 @@ window.onload = async function() {
     console.log('Event listeners setup');
     await attachEventListenersCart();
     await attachEventListenersCheckout()
+        console.log('Attach EventListner Search');
+    await attachEventListenersSearch();
     console.log('Load complete');
     console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log(JSON.parse(sessionStorage.getItem('cart')));
