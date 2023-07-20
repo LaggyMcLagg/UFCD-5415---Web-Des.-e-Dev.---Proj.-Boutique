@@ -34,7 +34,7 @@
 */
 import { loadProductsMain } from './main.js';
 import { applyBackgroundHero } from '../../logic/cylceTroughPhotosFunction.js';
-import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
+import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js';
 
 async function createNavbar() {
     const navbar = `
