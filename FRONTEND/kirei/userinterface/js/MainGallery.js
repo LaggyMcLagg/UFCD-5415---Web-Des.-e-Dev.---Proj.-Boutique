@@ -53,7 +53,8 @@
 
 import { loadProductsMain } from './main.js';
 import { initializeModalControl } from '../../logic/modalControl.js';
-import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
+import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js';
+import { searchProducts } from '../../logic/searchFunction.js';
 
 async function createNavbar() {
     const navbar = `
@@ -68,10 +69,10 @@ async function createNavbar() {
             <ul class="horizontal-nav">
                 <li><a href="../../index.html">LOGO</a></li>
                 <li>
-                    <form>
-                        <input type="text" class="searchbar" placeholder="Search">
-                        <input type="submit" value="Submit">
-                    </form>
+                <form id="Search-Form">
+                    <input type="text" id="Searchbar" class="searchbar" placeholder="Search">
+                    <input type="submit" value="Submit">
+                </form>
                 </li>
                 <li><a href="checkout.html">Cart</a></li>
             </ul>
@@ -85,6 +86,10 @@ async function createNavbar() {
     </nav>
 </div>`;
     document.body.innerHTML += navbar;
+}
+
+async function attachEventListenersSearch() {
+    document.querySelector("#Search-Form").addEventListener('submit', searchProducts);
 }
 
 async function createHighlightsArea(){
@@ -109,11 +114,14 @@ async function createArticles() {
     const searchIds = JSON.parse(sessionStorage.getItem('search'));
     const productsLoad = JSON.parse(sessionStorage.getItem('products'));
 
+    console.log(JSON.parse(sessionStorage.getItem('search')));
+
+
     if (productsLoad) {
         let filteredProducts = productsLoad;
 
         if (searchIds) {
-            filteredProducts = productsLoad.filter(product => Number(searchIds).includes(product.id));
+            filteredProducts = productsLoad.filter(product => searchIds.includes(product.id));
             sessionStorage.removeItem('search');
         }
 
@@ -201,6 +209,8 @@ window.onload = async function() {
     await initializeModalControl();
     console.log('SidePanel control init');
     await initializeHamburgerMenu();
+    console.log('Attach EventListner Search');
+    await attachEventListenersSearch();
     console.log('Load complete');
     console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log(JSON.parse(sessionStorage.getItem('cart')));

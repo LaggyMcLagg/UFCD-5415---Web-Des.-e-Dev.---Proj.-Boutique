@@ -35,6 +35,7 @@
 import { loadProductsMain } from './main.js';
 import { applyBackgroundHero } from '../../logic/cylceTroughPhotosFunction.js';
 import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js';
+import { searchProducts } from '../../logic/searchFunction.js';
 
 async function createNavbar() {
     const navbar = `
@@ -49,8 +50,8 @@ async function createNavbar() {
             <ul class="horizontal-nav">
                 <li><a href="index.html">LOGO</a></li>
                 <li>
-                    <form>
-                        <input type="text" class="searchbar" placeholder="Search">
+                    <form id="Search-Form">
+                        <input type="text" id="Searchbar" class="searchbar" placeholder="Search">
                         <input type="submit" value="Submit">
                     </form>
                 </li>
@@ -65,7 +66,11 @@ async function createNavbar() {
         </div>
     </nav>
 </div>`;
-    document.body.innerHTML += navbar;
+    document.body.innerHTML += navbar;    
+}
+
+async function attachEventListenersSearch() {
+    document.querySelector("#Search-Form").addEventListener('submit', searchProducts);
 }
 
 export async function createFooter() {
@@ -93,6 +98,8 @@ window.onload = async function() {
     await createFooter();
     console.log('SidePanel controlador init');
     await initializeHamburgerMenu();
+    console.log('Attach EventListner Search');
+    await attachEventListenersSearch();
     console.log('Load complete products and cart report:');
     console.log(JSON.parse(sessionStorage.getItem('products')));
     console.log(JSON.parse(sessionStorage.getItem('cart')));
