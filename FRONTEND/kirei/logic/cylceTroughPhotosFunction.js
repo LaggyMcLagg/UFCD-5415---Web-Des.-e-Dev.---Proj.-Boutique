@@ -19,11 +19,10 @@ export function applyBackgroundHero()
 {
     
     const images = [
-        '../userinterface/photos/imagesHero/img1.jpg', 
+        '../userinterface/photos/imagesHero/img1.jpg',
         '../userinterface/photos/imagesHero/img2.jpg', 
         '../userinterface/photos/imagesHero/img3.jpg', 
-        '../userinterface/photos/imagesHero/img4.jpg', 
-        '../userinterface/photos/imagesHero/img5.jpg'
+        '../userinterface/photos/imagesHero/img4.jpg'
     ];
 
     function applyBackground() 
