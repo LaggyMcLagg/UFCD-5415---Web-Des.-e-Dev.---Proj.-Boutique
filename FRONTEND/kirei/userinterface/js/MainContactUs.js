@@ -31,6 +31,8 @@ async function createNavbar() {
                 </div>
             </nav>
         </div>
+    </nav>
+    </div>
     `;
     document.body.innerHTML += navbar;
 }
@@ -38,7 +40,6 @@ async function createNavbar() {
 async function attachEventListenersSearch() {
     document.querySelector("#Search-Form").addEventListener('submit', searchProducts);
 }
-
 
 async function createBanner() {
     const banner = `
