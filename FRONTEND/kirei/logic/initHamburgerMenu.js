@@ -34,4 +34,10 @@ export async function initializeHamburgerMenu() {
             menu.classList.remove('open');
         }
     });
+
+    window.addEventListener('scroll', function() {
+        if (menu.classList.contains('open')) {
+            menu.classList.remove('open');
+        }
+    });
 }
