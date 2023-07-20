@@ -1,5 +1,32 @@
 // import { loadProductsMain } from '../User-Interface/JSMAIN/main.js'
 
+
+{
+    // formEl.onsubmit('submit', (event) => {
+    //     event.preventDefault();
+
+    //     const input = formEl.getElementById("searchInput");
+
+    //     console.log(input);
+
+    // });
+
+    // function formsub(event) {
+
+    //     const input = document.querySelector("#searchInput");
+
+    //     console.log(input);
+    // }
+
+    // formEl.onsubmit = (event) => {
+    //     event.preventDefault();
+
+    //     const input = document.querySelector("#searchInput").value;
+
+    //     console.log(input);
+    // }
+}
+
 let names = [
     {
         id: 1,
@@ -27,82 +54,54 @@ let names = [
     },
 ]
 
-//this goes to models.
 const formEl = document.getElementById("formSearchbar");
 
 formEl.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const inputValue = document.querySelector("#searchInput").value.toLowerCase();
-
-    searchbar(inputValue);
-
-});
+    const inputValue = document.querySelector("#searchInput").value;
 
 
+    // loadProductsMain();
 
-function searchbar(inputValue) {
+    // JSON.parse(sessionStorage.getItem('products'))
+    // console.log(JSON.parse(sessionStorage.getItem('products')))
 
-    // const products = JSON.parse(sessionStorage.getItem('products'));
+    let words = [];
+    let words2 = [];
 
-    // console.log(products);
+    names.map(name => {
+        words += name.name.split(' ');
+        // word += ";";
+        console.log("words: " + words)
+
+
+        console.log(words[0]);
+        // console.log(words.join)
+        // console.log(inputValue)
+
+        
+        // words.map(word => {
+        //     console.log("word: " + word);
+        // })
+    });
+    words2 += words.split(',');
+    console.log("words2: " + words2[0]);
+
+
+    console.log(names[0].name)
+    console.log(words[0])
+    //nao consegui entender o porque do words[0] me devolver a primeira letra, mas a intenção era perber o porque e tentar acabar
+    console.log(words)
+    console.log(words.length)
     
-    if (inputValue) {
-        let words = [];
-        let inputValueWords = [];
-
-        let search = []; //store the ids
-
-        inputValueWords = inputValue.toLowerCase().split(" ")
-
-        names.forEach(product => {
-
-            words = product.name.toLowerCase().split(" ");
-
-            let i = 0;
-            let j = 0;
-
-            words.forEach(word => {
-                
-                inputValueWords.map(input => {
-
-                    if (input == words[j]) {
-                        
-                        if (!search.includes(product.id)) {
-                            search.push(product.id);
-                        }
-
-                    }
-                    i++; 
-                });
-                j++
-            });
-            
-        });
-
-        // if(search.length > 0) {
-        //     sessionStorage.setItem('search', JSON.stringify(search));
-        // }
-    
-        // console.log(JSON.parse(sessionStorage.getItem('search')));
-    
-        // window.location.href = "../userinterface/html/gallery.html";
-
-        
-        
-        
-            // const foundProductIds = products.filter(product => 
-            //     product.name.toLowerCase().includes(searchTerm.toLowerCase())
-            // ).map(product => product.id);
-        
-
-        //guardar ids para session storage
-        //search.add(ids...)
-        //chamar galeria
-        console.log(search);
-
+    if(inputValue == words[0]){
+        console.log("YESSSSSSS!!!!");
     }
-}
+
+    console.log(names);
+    // console.log(word.split(';'));
+})
 
 
 // < form id = "formSearchbar" >
