@@ -4,44 +4,13 @@ export function searchProducts(event) {
     const searchTerm = event.target.querySelector("#Searchbar").value;
 
     const products = JSON.parse(sessionStorage.getItem('products'));
-    
-    let search = []; //store the ids
-    if (searchTerm) {
-        let words = [];
-        let inputValueWords = [];
 
+    const foundProductIds = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    ).map(product => product.id);
 
-        inputValueWords = searchTerm.toLowerCase().split(" ")
-
-        products.forEach(product => {
-
-            words = product.name.toLowerCase().split(" ");
-
-            let i = 0;
-            let j = 0;
-
-            words.forEach(word => {
-                
-                inputValueWords.map(input => {
-
-                    if (input == words[j]) {
-                        
-                        if (!search.includes(product.id)) {
-                            search.push(product.id);
-                        }
-
-                    }
-                    i++; 
-                });
-                j++
-            });
-            
-        });
-
-    }
-
-    if(search.length > 0) {
-        sessionStorage.setItem('search', JSON.stringify(search));
+    if(foundProductIds.length > 0) {
+        sessionStorage.setItem('search', JSON.stringify(foundProductIds));
     }
 
     console.log(JSON.parse(sessionStorage.getItem('search')));

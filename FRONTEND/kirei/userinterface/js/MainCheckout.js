@@ -180,7 +180,7 @@ window.onload = async function() {
     console.log('Event listeners setup');
     await attachEventListenersCart();
     await attachEventListenersCheckout()
-        console.log('Attach EventListner Search');
+    console.log('Attach EventListner Search');
     await attachEventListenersSearch();
     console.log('Load complete');
     console.log(JSON.parse(sessionStorage.getItem('products')));
