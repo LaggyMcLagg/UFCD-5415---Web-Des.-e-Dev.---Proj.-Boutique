@@ -65,7 +65,7 @@ async function createNavbar() {
                                 <input type="submit" value="Submit">
                             </form>
                         </li>
-                        <li><a href="checkout.html">Cart</a></li>
+                        <li><a class="cart" href="checkout.html">Cart</a></li>
                     </ul>
                     <ul class="menu">
                         <li><a href="gallery.html">Galeria</a></li>
