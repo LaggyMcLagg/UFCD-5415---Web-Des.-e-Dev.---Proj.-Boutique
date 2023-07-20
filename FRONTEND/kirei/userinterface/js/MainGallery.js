@@ -109,11 +109,14 @@ async function createArticles() {
     const searchIds = JSON.parse(sessionStorage.getItem('search'));
     const productsLoad = JSON.parse(sessionStorage.getItem('products'));
 
+    console.log(JSON.parse(sessionStorage.getItem('search')));
+
+
     if (productsLoad) {
         let filteredProducts = productsLoad;
 
         if (searchIds) {
-            filteredProducts = productsLoad.filter(product => Number(searchIds).includes(product.id));
+            filteredProducts = productsLoad.filter(product => searchIds.includes(product.id));
             sessionStorage.removeItem('search');
         }
 
