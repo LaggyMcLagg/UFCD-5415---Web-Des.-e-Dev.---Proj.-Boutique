@@ -8,7 +8,7 @@ body
 {
     margin: 0;
     padding: 0;
-    background-image: url('../photos/heroHorizontal.jpg');
+    background-image: url('../photos/imagesHero/imgHero.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -24,7 +24,7 @@ body
 {
     body
     {
-        background-image: url('../photos/heroVertical.jpg');
+        background-image: url('../photos/imagesHero/imgHero.jpg');
     } 
     
     .container
