@@ -1,4 +1,5 @@
 import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
+import { createCardUser } from '../../logic/randomContacts.js'
 
 async function createNavbar() {
     const navbar = `
@@ -30,6 +31,7 @@ async function createNavbar() {
             </nav>
         </div>
     `;
+
     document.body.innerHTML += navbar;
 }
 
@@ -56,7 +58,7 @@ async function createAboutUs() {
             <br>
             <h3>Follow us on social media:</h3>
             <div class="about-container">
-                
+
             </div>
     
         </div>
@@ -64,6 +66,8 @@ async function createAboutUs() {
 
     document.body.innerHTML += aboutUs;
 }
+
+createCardUser();
 
 async function createContact() {
     const contact = `
@@ -73,11 +77,17 @@ async function createContact() {
                     <div class="contact-container">
                         <div class="form-container">
                             <h3>Contact Us</h3>
-                            <form action="" class="contact-form">
-                                <input type="text" placeholder="Your Name" required>
-                                <input type="email" name="" id="" placeholder="name@email.com" required>
-                                <textarea name="" id="" cols="30" rows="10" placeholder="Write your message here..."
-                                    required></textarea>
+                            <form action="" method="GET" class="contact-form">
+                                <label>Name</label>
+                                <input class="" type="text" id="Name" placeholder="Your Name">
+                                <div class="error-hint hidden">Insert a valid name.</div>
+                                <label>Email</label>
+                                <input class="" inputmode="email" name="" id="Email" placeholder="name@email.com">
+                                <div class="error-hint hidden">Insert a valid email.</div>
+                                <label>Message</label>
+                                <textarea class="" name="" id="TextBox" cols="30" rows="10" placeholder="Write your message here..."
+                                ></textarea>
+                                <div class="error-hint hidden">Please type a sentence.</div>
                                 <input type="submit" value="Send" class="send-button">
                             </form>
                         </div>
@@ -92,11 +102,52 @@ async function createContact() {
             </div>
         </div>
     `;
-    document.body.innerHTML += contact;
 
+    document.body.innerHTML += contact;
 }
 
+async function attachEventListenerForms() {
+    const nome = document.getElementById('Name');
+    const email = document.getElementById('Email');
+    const textBox = document.getElementById('TextBox');
+    const form = document.querySelector('.contact-form');
 
+    nome.addEventListener('input', () => {
+        nome.classList.remove('invalid');
+        nome.nextElementSibling.classList.add('hidden');
+    });
+    
+    email.addEventListener('input', () => {
+        email.classList.remove('invalid');
+        email.nextElementSibling.classList.add('hidden');
+    });
+    
+    textBox.addEventListener('input', () => {
+        textBox.classList.remove('invalid');
+        textBox.nextElementSibling.classList.add('hidden');
+    });
+
+    form.addEventListener('submit', (e) => {
+
+        if(!nome.value.match(/^[a-zA-ZÀ-ÿ]+(\s{1}[a-zA-ZÀ-ÿ]+)*$/)) {
+            e.preventDefault();
+            nome.classList.add('invalid');
+            nome.nextElementSibling.classList.remove('hidden');
+        }
+
+        if (!email.value.match(/^[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/)) {
+            e.preventDefault();
+            email.classList.add('invalid');
+            email.nextElementSibling.classList.remove('hidden');
+        }
+
+        if (textBox.value == '' || textBox.value == null) {
+            e.preventDefault();
+            textBox.classList.add('invalid');
+            textBox.nextElementSibling.classList.remove('hidden');
+        }     
+    });
+}
 
 window.onload = async function (event) {
     console.log('Navbar loading');
@@ -107,7 +158,8 @@ window.onload = async function (event) {
     await createAboutUs();
     console.log('contact loading');
     await createContact();
+    console.log('attach eventlisteners');
+    await attachEventListenerForms();
     console.log('Hamburger init');
     await initializeHamburgerMenu();
 };
-
