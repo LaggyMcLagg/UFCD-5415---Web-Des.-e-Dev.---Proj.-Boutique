@@ -473,19 +473,20 @@ html, body
 }
 
 .modal-content {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255);
     position: relative;
     margin: 5% auto;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
     height: 80%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     box-sizing: border-box;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 1%;
 }
 
 .close:hover{
@@ -517,9 +518,9 @@ html, body
 
 .modal-end-container {
     position: absolute;
-    bottom: 5px;
-    left: 0;
-    right: 0;
+    bottom: 3px;
+    left: 0%;
+    right: 0%;
     background-color: white;
     display: flex;
     justify-content: center;
