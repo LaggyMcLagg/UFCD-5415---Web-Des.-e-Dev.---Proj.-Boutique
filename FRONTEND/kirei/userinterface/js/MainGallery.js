@@ -139,6 +139,7 @@ async function attachEventListenersSearch() {
 async function createHighlightsArea(){
     const highlights = `
     <div class="highlights-title-class"><h3>TITULO DESTAQUES</h3></div>
+    <div class="highlights-container-class">
         <div class="highlights-div-class">
             <div class="highlight1-class" id="Open-Modal-Element"></div>
             <div class="highlight2-class" id="Open-Modal-Element"></div>
@@ -146,14 +147,11 @@ async function createHighlightsArea(){
             <div class="highlight4-class" id="Open-Modal-Element"></div>
             <div class="highlight5-class" id="Open-Modal-Element"></div>
         </div>
+    </div>
     `
     document.body.innerHTML += highlights;
 }
 
-/*!!! NOTA DEV TIAGO
-a galeria está a espera disto dentro da sessionStorage 'search', um array de IDs
-por exemplo [2, 1, 5]
-**/
 async function createArticles() {
     const searchIds = JSON.parse(sessionStorage.getItem('search'));
     const productsLoad = JSON.parse(sessionStorage.getItem('products'));
@@ -169,7 +167,10 @@ async function createArticles() {
             sessionStorage.removeItem('search');
         }
 
-        let articlesHTML = '<div class="articles-title-class"><h3>TITULO ARTIGOS</h3></div><div class="articles-div-class">';
+        let articlesHTML = `
+        <div class="articles-title-class"><h3>TITULO ARTIGOS</h3></div>
+            <div class="articles-container-class">
+                <div class="articles-div-class">`;
 
         for (let i = 0; i < filteredProducts.length; i++) {
             articlesHTML += `
@@ -178,7 +179,9 @@ async function createArticles() {
             `;
         }
         
-        articlesHTML += '</div>';
+        articlesHTML += `
+            </div>
+        </div>`;
         document.body.innerHTML += articlesHTML;
     } else {
         console.log('No products found in local storage.')

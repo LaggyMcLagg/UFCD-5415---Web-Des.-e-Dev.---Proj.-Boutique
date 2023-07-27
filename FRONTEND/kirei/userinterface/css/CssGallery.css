@@ -1,7 +1,19 @@
+:root
+{
+    --yellow: #ffd52e;
+    --grey: #c0c2c1;
+    --black: #070708;
+    --white: #ffffff; 
+}
+
 html, body
 {
     margin: 0;
     padding: 0;
+    background-image: url("..\photos\landscape\gallery-bg.jpg");
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+
 }
 .colours
 {
@@ -11,79 +23,21 @@ html, body
 
 @media only screen and (max-width: 768px)
 {
-
-    /* INICIO DA NAVBAR */
-    .container
-    {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(255,165,0,0.3);
-    }
-    
-    .logo-class
-    {
-        width: 25%;
-        height: 50px;
-        margin: 5px;
-        background-color: var(--box-color);
-        background-color: aqua;
-        padding: 1em;
-        font-weight: 700;
-        color: var(--box-color);
-        border-radius: 5px;
-    }
-    
-    .searchbar-class
-    {
-        display: flex;
-        align-items: center;
-        width: 25%;
-        height: 10px;
-        margin: 5px;
-        background-color: aqua;
-        padding: 1em;
-        font-weight: 700;
-        color: var(--box-color);
-        border-radius: 5px;
-    }
-
-    .searchinput-class 
-    {
-        border: none;
-        border-radius: 4px;
-        padding: 8px;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .cart-class
-    {
-        width: 5%;
-        height: 10px;
-        margin: 5px;
-        background-color: aqua;
-        padding: 1em;
-        font-weight: 700;
-        color: var(--box-color);
-        border-radius: 5px;
-    }
-    
-    .hamburger-class
-    {
-        padding: 1em;
-    }
-
-    /* FIM DA NAVBAR */
-
     .highlights-title-class
     {
         display: flex;
         justify-content: center;
     }
 
+    .highlights-container-class
+    {
+        width: 95%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+    }
+
     /* GRID */
+
 
     .highlights-div-class
     {
@@ -149,6 +103,14 @@ html, body
         display: flex;
         justify-content: center;
     }
+
+    .articles-container-class
+    {
+        width: 95%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+    }
+    
     .articles-div-class {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -228,71 +190,17 @@ html, body
 
 @media only screen and (min-width: 769px)
 {
-
-    /* INICIO DA NAVBAR */
-    .container
-    {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(255,165,0,0.3);
-    }
-    .logo-class
-    {
-        width: 25%;
-        height: 50px;
-        margin: 5px;
-        background-color: var(--box-color);
-        background-color: aqua;
-        padding: 1em;
-        font-weight: 700;
-        color: var(--box-color);
-        border-radius: 5px;
-    }
-    .searchbar-class
-    {
-        display: flex;
-        align-items: center;
-        width: 25%;
-        height: 10px;
-        margin: 5px;
-        background-color: aqua;
-        padding: 1em;
-        font-weight: 700;
-        color: var(--box-color);
-        border-radius: 5px;
-    }
-    .searchinput-class 
-    {
-        border: none;
-        border-radius: 4px;
-        padding: 8px;
-        width: 100%;
-        height: 100%;
-    }
-    .cart-class
-    {
-        width: 5%;
-        height: 10px;
-        margin: 5px;
-        background-color: aqua;
-        padding: 1em;
-        font-weight: 700;
-        color: var(--box-color);
-        border-radius: 5px;
-    }
-    .hamburger-class
-    {
-        padding: 1em;
-    }
-/* FIM DA NAVBAR */
-
-
     .highlights-title-class
     {
         display: flex;
         justify-content: center;
+    }
+
+    .highlights-container-class
+    {
+        width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
     /* GRID */
@@ -311,7 +219,6 @@ html, body
     .highlight1-class
     {
         grid-area: 1 / 1 / 3 / 3;
-        gap: 10px;
         width: 100%;
         height: auto;
         /* background-color: aqua; */
@@ -322,7 +229,6 @@ html, body
 
     .highlight2-class
     {
-        gap: 10px;
         width: 100%;
         height: auto;
         /* background-color: aqua; */
@@ -333,7 +239,6 @@ html, body
 
     .highlight3-class
     {
-        gap: 10px;
         width: 100%;
         height: auto;
         /* background-color: aqua; */
@@ -344,7 +249,6 @@ html, body
 
     .highlight4-class
     {
-        gap: 10px;
         width: 100%;
         height: auto;
         /* background-color: aqua; */
@@ -355,14 +259,23 @@ html, body
     
     .highlight5-class
     {
-        gap: 10px;
         width: 100%;
         height: auto;
         /* background-color: aqua; */
         background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
         background-size: cover;
         background-position: center;
-    }    
+    }
+
+    .highlight1-class:hover,
+    .highlight2-class:hover,
+    .highlight3-class:hover,
+    .highlight4-class:hover,
+    .highlight5-class:hover 
+    {
+    background-size: 101%;
+    /* transition: background-size 5s ease; */
+    }
 
     .articles-title-class
     {
@@ -370,7 +283,15 @@ html, body
         justify-content: center;
     }
 
-    .articles-div-class {
+    .articles-container-class
+    {
+        width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .articles-div-class 
+    {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
@@ -383,74 +304,7 @@ html, body
     {
         gap: 10px;
         width: 100%;
-        min-height: calc((100vh - 75px) / 2); /* Ajuste a altura conforme necessário */
-        /* background-color: aqua; */
-        background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .article1-class 
-    {
-        gap: 10px;
-        width: 100%;
-        height: auto;
-        /* background-color: aqua; */
-        background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .article2-class 
-    {
-        gap: 10px;
-        width: 100%;
-        height: auto;
-        /* background-color: aqua; */
-        background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .article3-class 
-    {
-        gap: 10px;
-        width: 100%;
-        height: auto;
-        /* background-color: aqua; */
-        background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .article4-class 
-    {
-        gap: 10px;
-        width: 100%;
-        height: auto;
-        /* background-color: aqua; */
-        background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .article5-class 
-    {
-        gap: 10px;
-        width: 100%;
-        height: auto;
-        /* background-color: aqua; */
-        background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .article6-class 
-    {
-        gap: 10px;
-        width: 100%;
-        height: auto;
-        /* background-color: aqua; */
+        min-height: calc((100vh - 75px) / 2);
         background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
         background-size: cover;
         background-position: center;
