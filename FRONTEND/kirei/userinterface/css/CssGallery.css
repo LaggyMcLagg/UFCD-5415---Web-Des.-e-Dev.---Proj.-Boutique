@@ -1,3 +1,10 @@
+:root {
+    --yellow: #ffd52e;
+    --grey: #c0c2c1;
+    --black: #070708;
+    --white: #ffffff;
+}
+
 html, body
 {
     margin: 0;
@@ -473,7 +480,7 @@ html, body
 }
 
 .modal-content {
-    background-color: rgba(255, 255, 255);
+    background-color: rgba(255, 255, 255);;
     position: relative;
     margin: 5% auto;
     border: 1px solid #888;
@@ -506,6 +513,7 @@ html, body
 
 .star{
     font-size: 20px;
+    color: var(--yellow);
 }
 
 .gray {
@@ -523,8 +531,27 @@ html, body
     right: 0%;
     background-color: white;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 10px;
+    padding: 10px;
+}
+
+.modal-end-container button {
+    color: var(--black);
+    background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px 6px 10px 6px;
+}
+
+.modal-end-container button:hover {
+    cursor: pointer;
+    color: var(--yellow);
+    border-color: var(--yellow);
+    transition: 0.2s;
 }
 
 @keyframes animatetop {
@@ -669,6 +696,12 @@ html, body
         position: relative;
         right: calc(50% - (50% / 2));
     }
+    
+    .modal-content {
+        width: 50%;
+        height: 50%;
+    }
+    
 }
 
 @media (min-width:700px) {
@@ -681,6 +714,11 @@ html, body
 
     .horizontal-nav {
         gap: 10%;
+    }
+
+    .modal-content {
+        width: 50%;
+        height: 65%;
     }
 }
 
@@ -719,6 +757,18 @@ html, body
     .open {
         left: 0;
         transform: translateX(0%);
+    }
+
+    .modal-content {
+        width: 40%;
+        height: 70%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-content {
+        width: 40%;
+        height: 80%;
     }
 }
 

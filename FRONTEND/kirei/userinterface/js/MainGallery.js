@@ -213,17 +213,17 @@ async function createModal() {
         <span id="Close" class="close">&times;</span>
 
         <div id="Modal-End-Container" class="modal-end-container">
-            <span class='star' data-star="1">&#11088;</span>
-            <span class='star' data-star="2">&#11088;</span>
-            <span class='star' data-star="3">&#11088;</span>
-            <span class='star' data-star="4">&#11088;</span>
-            <span class='star' data-star="5">&#11088;</span>
+            <i class="fa-solid fa-star star" data-star="1"></i>
+            <i class="fa-solid fa-star star" data-star="2"></i>
+            <i class="fa-solid fa-star star" data-star="3"></i>
+            <i class="fa-solid fa-star star" data-star="4"></i>
+            <i class="fa-solid fa-star star" data-star="5"></i>
             <button id="Modal-Add-Cart">Add to Cart</button>
         </div>
-
         </div>
     </div>`;
     document.body.innerHTML += modal;
+    
 }
 
 //!!! ATENÇÂO REMOVER CONSOLE LOGS ANTES DE ENTREGA MANTENHO PARA FACILITAR DEBUG CASO NECESSÀRIO !!!
