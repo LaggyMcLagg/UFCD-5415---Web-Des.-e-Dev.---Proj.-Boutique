@@ -1,4 +1,4 @@
-import {initializeHamburgerMenu} from '../../logic/initHamburgerMenu.js'
+import { initializeHamburgerMenu } from '../../logic/initHamburgerMenu.js'
 import { createCardUser } from '../../logic/randomContacts.js'
 import { searchProducts } from '../../logic/searchFunction.js';
 
@@ -62,12 +62,13 @@ async function createNavbar() {
                     </svg>
                         </a></li>
                         <li>
-                        <form id="Search-Form">
-                            <input type="text" id="Searchbar" class="searchbar" placeholder="Search">
-                            <input type="submit" value="Submit">
+                        <form class="searchbar">
+                            <input type="text" placeholder="Search">
+                            <button class="submit-button" type="submit"><img src="../photos/icons/loop-dark.png" alt="submit"></button>
                         </form>
-                        </li>
-                        <li><a class="cart" href="checkout.html">Cart</a></li>
+                        <li><a href="checkout.html">
+                            <img class="cart-icon" src="../photos/icons/cart-light.png" alt="cart">
+                        </a></li>
                     </ul>
                     <ul class="menu">
                         <li><a href="gallery.html">Galeria</a></li>
@@ -91,9 +92,25 @@ async function attachEventListenersSearch() {
 
 async function createBanner() {
     const banner = `
-        <div class="item banner">
-            Our slogan is so good that you want to buy our stuff.
-        </div>
+    <div class="item banner">
+        <div class="banner-effect">
+            <div class="key-words">
+                <p>US</p>
+                <p>OUR TEAM</p>
+                <p>OUR CONTACT</p>
+            </div>
+            <p class="banner-text">We're designers, fashion enthusiasts, creatives and firm believers that style
+            over comfort is stuff from yesterday.</p>
+            <h1>Who?</h1>
+            <button>Tell me more -></button>
+            <img class="yellow-jacket" src="../photos/portrait/yellow-jacket.png" alt="yellow-jacket">
+        <ul class="grey-plus">
+            <li><img src="../photos/icons/grey-plus.png" alt="grey-plus"></li>
+            <li><img src="../photos/icons/grey-plus.png" alt="grey-plus"></li>
+            <li><img src="../photos/icons/grey-plus.png" alt="grey-plus"></li>
+        </ul>
+    </div>
+</div>
     `;
 
     document.body.innerHTML += banner;
@@ -102,8 +119,11 @@ async function createBanner() {
 async function createAboutUs() {
     const aboutUs = `
         <div class="item about-us">
-            <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem corrupti nesciunt unde, ut eius quia
+            <h1>Who we are</h1>
+            <div class="yellow-frame">
+                <img src="../photos/portrait/yellow-dress2.webp" alt="yellow-dress">
+            </div>
+            <p class="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem corrupti nesciunt unde, ut eius quia
                 fugiat labore consequuntur harum sequi illum dolor, molestiae maiores excepturi rem! Laudantium
                 provident minima tenetur ipsum quas nobis eius nostrum debitis veniam rerum! Odit non vero dolorum
                 reiciendis officia dolore dolorem cum illum quos architecto quas maiores veritatis aut, ratione eos
@@ -170,12 +190,12 @@ async function attachEventListenerForms() {
         nome.classList.remove('invalid');
         nome.nextElementSibling.classList.add('hidden');
     });
-    
+
     email.addEventListener('input', () => {
         email.classList.remove('invalid');
         email.nextElementSibling.classList.add('hidden');
     });
-    
+
     textBox.addEventListener('input', () => {
         textBox.classList.remove('invalid');
         textBox.nextElementSibling.classList.add('hidden');
@@ -183,7 +203,7 @@ async function attachEventListenerForms() {
 
     form.addEventListener('submit', (e) => {
 
-        if(!nome.value.match(/^[a-zA-ZÀ-ÿ]+(\s{1}[a-zA-ZÀ-ÿ]+)*$/)) {
+        if (!nome.value.match(/^[a-zA-ZÀ-ÿ]+(\s{1}[a-zA-ZÀ-ÿ]+)*$/)) {
             e.preventDefault();
             nome.classList.add('invalid');
             nome.nextElementSibling.classList.remove('hidden');
@@ -199,7 +219,7 @@ async function attachEventListenerForms() {
             e.preventDefault();
             textBox.classList.add('invalid');
             textBox.nextElementSibling.classList.remove('hidden');
-        }     
+        }
     });
 }
 
