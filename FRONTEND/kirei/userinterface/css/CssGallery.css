@@ -1,3 +1,10 @@
+:root {
+    --yellow: #ffd52e;
+    --grey: #c0c2c1;
+    --black: #070708;
+    --white: #ffffff;
+}
+
 html, body
 {
     margin: 0;
@@ -473,19 +480,20 @@ html, body
 }
 
 .modal-content {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255);;
     position: relative;
     margin: 5% auto;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
     height: 80%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     box-sizing: border-box;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 1%;
 }
 
 .close:hover{
@@ -505,6 +513,7 @@ html, body
 
 .star{
     font-size: 20px;
+    color: var(--yellow);
 }
 
 .gray {
@@ -517,13 +526,32 @@ html, body
 
 .modal-end-container {
     position: absolute;
-    bottom: 5px;
-    left: 0;
-    right: 0;
+    bottom: 3px;
+    left: 0%;
+    right: 0%;
     background-color: white;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 10px;
+    padding: 10px;
+}
+
+.modal-end-container button {
+    color: var(--black);
+    background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px 6px 10px 6px;
+}
+
+.modal-end-container button:hover {
+    cursor: pointer;
+    color: var(--yellow);
+    border-color: var(--yellow);
+    transition: 0.2s;
 }
 
 @keyframes animatetop {
@@ -668,6 +696,12 @@ html, body
         position: relative;
         right: calc(50% - (50% / 2));
     }
+    
+    .modal-content {
+        width: 50%;
+        height: 50%;
+    }
+    
 }
 
 @media (min-width:700px) {
@@ -680,6 +714,11 @@ html, body
 
     .horizontal-nav {
         gap: 10%;
+    }
+
+    .modal-content {
+        width: 50%;
+        height: 65%;
     }
 }
 
@@ -718,6 +757,18 @@ html, body
     .open {
         left: 0;
         transform: translateX(0%);
+    }
+
+    .modal-content {
+        width: 40%;
+        height: 70%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-content {
+        width: 40%;
+        height: 80%;
     }
 }
 
