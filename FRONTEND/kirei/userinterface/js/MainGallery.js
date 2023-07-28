@@ -138,7 +138,7 @@ async function attachEventListenersSearch() {
 
 async function createHighlightsArea(){
     const highlights = `
-    <div class="highlights-title-class"><h3>TITULO DESTAQUES</h3></div>
+    <div class="highlights-title-class"><h3>DESTAQUES</h3></div>
     <div class="highlights-container-class">
         <div class="highlights-div-class">
             <div class="highlight1-class" id="Open-Modal-Element"></div>
@@ -168,13 +168,17 @@ async function createArticles() {
         }
 
         let articlesHTML = `
-        <div class="articles-title-class"><h3>TITULO ARTIGOS</h3></div>
+        <div class="articles-title-class"><h3>ARTIGOS</h3></div>
             <div class="articles-container-class">
                 <div class="articles-div-class">`;
 
         for (let i = 0; i < filteredProducts.length; i++) {
             articlesHTML += `
                 <div class="article-class" id="Open-Modal-Element" style="background-image: url('${filteredProducts[i].image}');" data-id="${filteredProducts[i].id}">
+                <div class="name-price-class">
+                <label>${filteredProducts[i].name}</label>
+                <label>${filteredProducts[i].price}</label>
+                </div>
                 </div>
             `;
         }
