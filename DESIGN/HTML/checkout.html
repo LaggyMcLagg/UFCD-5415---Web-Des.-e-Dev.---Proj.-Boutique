@@ -8,127 +8,62 @@
     <title>Checkout</title>
 </head>
 <body>
-    <div class="container">
-        <!-- NavBar -->
-        <nav id="Navbar" class="item navbar" id="Navbar">
-            <div class="side-bar">
-                <div class="menu">
-                </div>
-            </div>>
-            <div id="Nav-Search-Bar" class="search-bar">
-                <label>Search</label>
-                <input id="Nav-Search-Placeholder" type="text" placeholder="Search">
-                <button id="Nav-Search-Button" type="submit">Search</button>
+    <main class="table product">
+        <section class="table-header">
+            <h1>Cart</h1>
+        </section>
+        <section class="table-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Product </th>
+                        <th> Quantity </th>
+                        <th> Subtotal </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="Cart-Info-${productId}">
+                        <td> <id="Shirt-Image-${productId}" src="${product.image}" alt="">${product.name}
+                            <a id="Remove-${productId}" class="remove-btn" data-id="${productId}" href="#">Remove</a>
+                        </td>
+                        <td class="quantity">
+                            <button id="Sub-Button-${productId}" data-id="${productId}" type="button">-</button>
+                            <label id="Quantity-Label-${productId}" data-id="${productId}">${cart[productId]}</label>
+                            <button id="Add-button" data-id="${productId}" type="button">+</button>
+                        </td>
+                        <td id="Price-tag-${productId}">$${(parseFloat(product.price) * cart[productId]).toFixed(2)}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div class="coupon">
+        <h4 class="summary">Summary</h4>
+        <div class="coupon-position">
+            <label>I have a coupon</label>
+            <input title="Coupon" id="Coupon" type="text">
+        </div>
+        <div class="container-flex">
+            <div class="checkout-text-subtotal">
+                Subtotal
             </div>
-            <div class="cart">Cart</div>
-        </nav>
-
-        <!-- Cart Items  -->
-        <div class="item product" id="Product">
-            <div class="small-container cart-page">
-                <table id="Product-Table" class="product-table">
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>SubTotal</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="../IMG-PHOTOS/woman-shirt-01.jpg">
-                                <div>
-                                    <p>Plain White Shirt</p>
-                                    <small id="Price">Price: €20.00</small>
-                                    <a id="Remove" href="">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button id="Sub-Button" type="button">-</button>
-                            <label id="Quantity-Label">1</label>
-                            <button id="Add-button" type="button">+</button>
-                        </td>
-                        <td id="Price-tag">€20.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="../IMG-PHOTOS/woman-shirt-01.jpg">
-                                <div>
-                                    <p>Plain White Shirt</p>
-                                    <small id="Price">Price: €20.00</small>
-                                    <a id="Remove" href="">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button id="Sub-Button" type="button">-</button>
-                            <label id="Quantity-Label">1</label>
-                            <button id="Add-button" type="button">+</button>
-                        </td>
-                        <td id="Price-tag">€20.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="../IMG-PHOTOS/woman-shirt-01.jpg">
-                                <div>
-                                    <p>Plain White Shirt</p>
-                                    <small id="Price">Price: €20.00</small>
-                                    <a id="Remove" href="">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button id="Sub-Button" type="button">-</button>
-                            <label id="Quantity-Label">1</label>
-                            <button id="Add-button" type="button">+</button>
-                        </td>
-                        <td id="Price-tag">€20.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="Cart-Info" class="cart-info">
-                                <img id="Shirt-Image" title="shirt-img" src="../IMG-PHOTOS/woman-shirt-01.jpg">
-                                <div>
-                                    <p>Plain White Shirt</p>
-                                    <small id="Price">Price: €20.00</small>
-                                    <a id="Remove" href="">Remove</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button id="Sub-Button" type="button">-</button>
-                            <label id="Quantity-Label">1</label>
-                            <button id="Add-button" type="button">+</button>
-                        </td>
-                        <td id="Price-tag">€20.00</td>
-                    </tr>
-
-                </table>
+            <div class="subtotal">
+                <span id="Subtotal-Price">€40.00</span>
             </div>
         </div>
-
-        <div class="item coupon">
-            <div class="coupon-position">
-                <label>I have a coupon</label>
-                <input title="Coupon" tiid="Coupon" type="text">
+        <div class="container-flex">    
+            <div class="checkout-text-total">
+                Total
             </div>
-
-            <div class="total-price">
-                <table id="Price-table">
-                    <tr>
-                        <td>Total</td>
-                        <td id="Total-Price">€40.00</td>
-                    </tr>
-                </table>
+            <div class="total">
+                <span id="Total-Price">€40.00</span>
             </div>
         </div>
-
-        <div class="item checkout" id="Checkout"> 
+        <div class="checkout" id="Checkout"> 
             <button id="Checkout-Button" type="button">Checkout</button>
+            <div id="Reciept"></div>
         </div>
-
     </div>
 </body>
 </html>
