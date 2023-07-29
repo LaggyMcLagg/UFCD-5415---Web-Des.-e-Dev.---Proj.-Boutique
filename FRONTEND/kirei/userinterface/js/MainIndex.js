@@ -123,9 +123,9 @@ export async function createFooter() {
     const footer = `
     <footer class="footer-class">
         <div>
-            <a href="https://facebook.com">FB</a>
-            <a href="https://twitter.com/">Twitter</a>
-            <a href="https://www.instagram.com/">Instagram</a>
+            <a href="https://facebook.com"><i class="fa-brands fa-square-facebook" style="color: #dec049;"></i></a>
+            <a href="https://instagram.com"><i class="fa-brands fa-square-instagram" style="color: #dec049;"></i></a>
+            <a href="https://twitter.com"><i class="fa-brands fa-square-twitter" style="color: #dec049;"></i></a>
         </div>
     </footer>`;
     document.body.innerHTML += footer;

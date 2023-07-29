@@ -138,22 +138,50 @@ async function attachEventListenersSearch() {
 
 async function createHighlightsArea(){
     const highlights = `
-    <div class="highlights-title-class"><h3>TITULO DESTAQUES</h3></div>
+    <div class="highlights-title-class"><h3>DESTAQUES</h3></div>
+    <div class="highlights-container-class">
         <div class="highlights-div-class">
-            <div class="highlight1-class" id="Open-Modal-Element"></div>
-            <div class="highlight2-class" id="Open-Modal-Element"></div>
-            <div class="highlight3-class" id="Open-Modal-Element"></div>
-            <div class="highlight4-class" id="Open-Modal-Element"></div>
-            <div class="highlight5-class" id="Open-Modal-Element"></div>
+
+            <div id="Open-Modal-Element" class="highlight1-class" >
+            <div class="name-price-class">
+            <label id="Name-1"></label>
+            <label id="Price-1"></label>
+            </div>
+            </div>
+
+            <div id="Open-Modal-Element" class="highlight2-class" >
+            <div class="name-price-class">
+            <label id="Name-2"></label>
+            <label id="Price-2"></label>
+            </div>
+            </div>
+
+            <div id="Open-Modal-Element" class="highlight3-class" >
+            <div clas="name-price-class">
+            <label id="Name-3"></label>
+            <label id="Price-3"></label>
+            </div>
+            </div>
+
+            <div id="Open-Modal-Element" class="highlight4-class" >
+            <div class="name-price-class">
+            <label id="Name-4"></label>
+            <label id="Price-4"></label>
+            </div>
+            </div>
+
+            <div id="Open-Modal-Element" class="highlight5-class">
+            <div class="name-price-class">
+            <label id="Name-5"></label>
+            <label id="Price-5"></label>
+            </div>
+            </div>
         </div>
+    </div>
     `
     document.body.innerHTML += highlights;
 }
 
-/*!!! NOTA DEV TIAGO
-a galeria está a espera disto dentro da sessionStorage 'search', um array de IDs
-por exemplo [2, 1, 5]
-**/
 async function createArticles() {
     const searchIds = JSON.parse(sessionStorage.getItem('search'));
     const productsLoad = JSON.parse(sessionStorage.getItem('products'));
@@ -169,16 +197,25 @@ async function createArticles() {
             sessionStorage.removeItem('search');
         }
 
-        let articlesHTML = '<div class="articles-title-class"><h3>TITULO ARTIGOS</h3></div><div class="articles-div-class">';
+        let articlesHTML = `
+        <div class="articles-title-class"><h3>ARTIGOS</h3></div>
+            <div class="articles-container-class">
+                <div class="articles-div-class">`;
 
         for (let i = 0; i < filteredProducts.length; i++) {
             articlesHTML += `
                 <div class="article-class" id="Open-Modal-Element" style="background-image: url('${filteredProducts[i].image}');" data-id="${filteredProducts[i].id}">
+                <div class="name-price-class">
+                <label>${filteredProducts[i].name}</label>
+                <label>${filteredProducts[i].price}</label>
+                </div>
                 </div>
             `;
         }
         
-        articlesHTML += '</div>';
+        articlesHTML += `
+            </div>
+        </div>`;
         document.body.innerHTML += articlesHTML;
     } else {
         console.log('No products found in local storage.')
@@ -196,10 +233,16 @@ async function loadHighlights() {
     if (highlightedProducts.length > 0) {
         highlightedProducts.forEach((productData, index) => {
             const highlightElement = document.querySelector(`.highlight${index + 1}-class`);
+            const highlightedLabelName = document.querySelector(`#Name-${index + 1}`);
+            const highlightedLabelPrice = document.querySelector(`#Price-${index + 1}`);
+
             if (highlightElement) {
                 highlightElement.style.backgroundImage = `url('${productData.image}')`;
                 highlightElement.dataset.id = productData.id;
+                highlightedLabelName.innerHTML = productData.name;
+                highlightedLabelPrice.innerHTML = productData.price;
             }
+            
         });
     } else {
         console.log('No products found in local storage.')
