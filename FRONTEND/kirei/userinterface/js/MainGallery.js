@@ -142,35 +142,35 @@ async function createHighlightsArea(){
     <div class="highlights-container-class">
         <div class="highlights-div-class">
 
-            <div id="Highlight1" class="highlight1-class" id="Open-Modal-Element">
+            <div id="Open-Modal-Element" class="highlight1-class" >
             <div class="name-price-class">
             <label id="Name-1"></label>
             <label id="Price-1"></label>
             </div>
             </div>
 
-            <div id="Highlight2" class="highlight2-class" id="Open-Modal-Element">
+            <div id="Open-Modal-Element" class="highlight2-class" >
             <div class="name-price-class">
             <label id="Name-2"></label>
             <label id="Price-2"></label>
             </div>
             </div>
 
-            <div id="Highlight3" class="highlight3-class" id="Open-Modal-Element">
+            <div id="Open-Modal-Element" class="highlight3-class" >
             <div clas="name-price-class">
             <label id="Name-3"></label>
             <label id="Price-3"></label>
             </div>
             </div>
 
-            <div id="Highlight4" class="highlight4-class" id="Open-Modal-Element">
+            <div id="Open-Modal-Element" class="highlight4-class" >
             <div class="name-price-class">
             <label id="Name-4"></label>
             <label id="Price-4"></label>
             </div>
             </div>
 
-            <div id="Highlight5" class="highlight5-class" id="Open-Modal-Element">
+            <div id="Open-Modal-Element" class="highlight5-class">
             <div class="name-price-class">
             <label id="Name-5"></label>
             <label id="Price-5"></label>
@@ -232,7 +232,7 @@ async function loadHighlights() {
     
     if (highlightedProducts.length > 0) {
         highlightedProducts.forEach((productData, index) => {
-            const highlightElement = document.querySelector(`#Highlight${index + 1}`);
+            const highlightElement = document.querySelector(`.highlight${index + 1}-class`);
             const highlightedLabelName = document.querySelector(`#Name-${index + 1}`);
             const highlightedLabelPrice = document.querySelector(`#Price-${index + 1}`);
 
