@@ -3,6 +3,7 @@
     --yellow: #ffd52e;
     --grey: #c0c2c1;
     --greyTransparency: rgba(192, 194, 193, 0.5);
+    --blackTransparency: rgba(0, 0, 0, 0.5);
     --black: #070708;
     --white: #ffffff;
 }
@@ -103,23 +104,7 @@ body
     {
         padding: 1em;
     }
-
-    .footerdesktop-class
-    {
-       display: none;
-    }
     
-
-    /* CLASSE DO SIDE PANEL - VASCO */
-    .side-panel {
-        position: fixed;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background-color: #333;
-        color: #fff;
-        transition: 0.3s;
-      }
 }
 
 @media only screen and (min-width: 769px)
@@ -188,39 +173,14 @@ body
     {
         padding: 1em;
     }
-
-    .footerdesktop-class
-    {
-        position: fixed;
-        display: flex;
-
-        justify-content: flex-end;
-        left: 0;
-        bottom: 20px;
-        width: 100%;
-        height: 50px;
-        align-items: center;
-        background-color: aqua;
-        box-shadow: none;
-        border: none;
-    }
-
-
-    /* CLASSE DO SIDE PANEL - VASCO */
-    .side-panel {
-        position: fixed;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background-color: #333;
-        color: #fff;
-        transition: 0.3s;
-      }
 }
 
 .footer-class 
 {
-    background-color: var(--greyTransparency);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--blackTransparency); 
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -228,6 +188,11 @@ body
     text-align: center;
     font-size: 150%;
     margin-bottom: 20px;
+}
+.footer-class i 
+{
+    box-shadow: 0 0 30px var(--black);
+    margin: 5px;
 }
 
 .footer-class div 
