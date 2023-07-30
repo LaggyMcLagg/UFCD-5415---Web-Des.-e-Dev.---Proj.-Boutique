@@ -247,7 +247,7 @@ textarea.invalid {
 
     .menu li a {
         display: flex;
-        color: #fff;
+        color: var(--yellow);
         text-decoration: none;
         font-size: 28px;
         padding-right: calc(100vw - 50vw);
