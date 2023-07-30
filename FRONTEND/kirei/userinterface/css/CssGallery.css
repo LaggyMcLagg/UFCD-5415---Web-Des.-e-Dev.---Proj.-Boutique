@@ -45,7 +45,7 @@ html, body
         grid-template-rows: repeat(2, 1fr);
         gap: 20px;
         width: 100%;
-        height: calc(100vh - 220px);
+        height: calc(100vh - 215px);
         margin-top: 15px;
         overflow-y: auto;
     }
@@ -144,7 +144,7 @@ html, body
         grid-template-rows: repeat(2, 1fr);
         gap: 20px;
         width: 100%;
-        height: calc(100vh - 160px);
+        height: calc(100vh - 150px);
         margin-top: 15px;
         overflow-y: auto;
     }
@@ -183,7 +183,8 @@ html, body
     .highlight4-class:hover,
     .highlight5-class:hover 
     {
-    background-size: 101%;
+    background-size: 175%;
+    background-repeat: no-repeat;
     }
 
     .articles-title-class
@@ -224,7 +225,8 @@ html, body
 
     .article-class:hover 
     {
-    background-size: 101%;
+    background-size: 175%;
+    background-repeat: no-repeat;
     }
 
     .name-price-class

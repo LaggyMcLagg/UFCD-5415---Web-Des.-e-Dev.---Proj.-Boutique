@@ -71,9 +71,9 @@ async function createNavbar() {
                         </a></li>
                     </ul>
                     <ul class="menu">
+                        <li><a href="../../index.html">Home Page</a></li>
                         <li><a href="gallery.html">Galeria</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
-
                     </ul>
                 </div>
             </nav>
