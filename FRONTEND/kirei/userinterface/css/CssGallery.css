@@ -11,7 +11,7 @@ html, body
 {
     margin: 0;
     padding: 0;
-    background-image: url("..\photos\landscape\gallery-bgV2.jpg");
+    background-image: url("../photos/landscape/gallery-bgV2.jpg");
     background-size: cover;
     font-family: 'Courier New', Courier, monospace;
     background-color: #1f1f1f;
@@ -63,6 +63,7 @@ html, body
         height: auto;
         background-image: url("https://images.unsplash.com/photo-1688202408403-b0053d377d37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80");
         background-size: cover;
+        background-repeat: no-repeat;
         background-position: center;
         border-radius: 5px;
     }
@@ -73,6 +74,7 @@ html, body
         flex-direction: column;
         justify-content: flex-end;
         display: none;
+        background-repeat: no-repeat;
     }
     .articles-title-class
     {
@@ -107,6 +109,7 @@ html, body
         background-size: cover;
         background-position: center;
         border-radius: 5px;
+        background-repeat: no-repeat;
     }
 
     .name-price-class

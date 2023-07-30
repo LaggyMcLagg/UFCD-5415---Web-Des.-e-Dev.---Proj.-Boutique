@@ -7,26 +7,73 @@
 }
 
 
-body{
-	margin: 0;
-	padding: 0;
+
+:root
+{
+    --yellow: #ffd52e;
+    --grey: #c0c2c1;
+    --greyTransparency: rgba(192, 194, 193, 0.5);
+    --black: #070708;
+    --white: #ffffff;
 }
 
-.container {
+/*############# 
+
+label-out-stock-class 
+
+coupon-label-class
+
+label-receipt-class
+
+#############*/
+
+
+
+/* ################################
+            RUI - INÍCIO
+################################ */
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+    background-image: url("..\photos\landscape\gallery-bgV2.jpg");
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1f1f1f;
+    color: var(--yellow);
+}
+
+.container 
+{
     display: grid;
     height: 100vh;
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: repeat(6,1fr);
     overflow: auto;
+    width: 95%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+.label-out-stock-class, 
+.label-coupon-class,
+.label-receipt-class
+{
+    color: var(--yellow);
 }
 
 .item {
     border-style: solid;
-    border-color: rgb(188, 65, 188);
-    background-color: pink;
-    border-width: 10px;
+    border-color: var(--greyTransparency);
+    border-width: 1px;
+    border-radius: 3px;
 }
 
+
+/* ################################
+            RUI - FIM
+################################ */
 
 /* Navbar */
 
@@ -41,11 +88,12 @@ body{
 }
 
 .line {
-    background-color: black;
+    background-color: var(--white);
     height: 3px;
     width: 100%;
     z-index: 1;
 }
+
 
 .logo {
     position: absolute;
@@ -53,7 +101,7 @@ body{
 }
 
 .searchbar {
-    background: rgba(29, 23, 23, 0.2);
+    background: var(--greyTransparency);
     display: flex;
     align-items: center;
     justify-items: start;
@@ -72,7 +120,7 @@ body{
 }
 
 .searchbar ::placeholder {
-    color: var(--black);
+    color: var(--white);
 }
 
 .searchbar button img {
@@ -161,7 +209,7 @@ body{
 }
 
 .total-price table {
-    border-top: 3px solid firebrick;
+    border-top: 3px solid var(--yellow);
     width: 100%;
     max-width: 350px;
     text-align: right;
@@ -178,7 +226,8 @@ body{
 
     .navbar .hamburger {
         position: fixed;
-        left: 30px;
+        left: 20px;
+        top: 30px;
     }
 
     .horizontal-nav {
@@ -236,10 +285,12 @@ body{
     
     .product {
         grid-area: 2 / 1 / 5 / 7 ;
+        margin-bottom: 10px;
     }
     
     .coupon {
         grid-area: 5 / 1 / 5 / 7;
+        margin-bottom: 10px;
     }
     
     .checkout {
@@ -250,6 +301,8 @@ body{
 @media (min-width: 600px) {
 
     .navbar {
+        position: relative;
+        top: -12px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         column-gap: calc((100% - 300px) / 2);
@@ -258,10 +311,15 @@ body{
     .horizontal-nav {
         gap: 10%;
     }
+    .hamburger {
+        top: 35px;
+    }
 }
 
 @media (min-width:900px) {
     .navbar {
+        position: relative;
+        top: -3px;
         grid-area: 1 / 1 / -7 / 7;
         height: 60px;
         z-index: 1;
@@ -303,11 +361,25 @@ body{
 
     .coupon {
         grid-area: 2 / 5 / 6 / 7;
+        margin-left: 10px;
+        margin-bottom: 10px;
     }
 
     .checkout {
         grid-area: 6 / 5 / 6 / 7;
+        margin-left: 10px;
     }
+}
+
+button {
+    color: var(--yellow);
+    font-weight: bold;
+    background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--yellow);
+    padding: 10px 6px 10px 6px;
 }
 
 /* Logo Animation */
@@ -364,6 +436,6 @@ body{
     }
 
     to {
-        fill: black;
+        fill: var(--white);
     }
 }
