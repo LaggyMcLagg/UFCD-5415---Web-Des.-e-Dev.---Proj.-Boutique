@@ -1,6 +1,6 @@
 import User from '../models/randomClass.js';
 
-async function getRandomUser(totalUsers = 3) {
+async function getRandomUser(totalUsers = 2) {
 
   const response = await fetch(`https://randomuser.me/api/?results=${totalUsers}`);
   const data = await response.json();
