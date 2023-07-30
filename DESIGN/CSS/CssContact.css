@@ -372,9 +372,21 @@ textarea.invalid {
         grid-area: 1 / 1 / 2 / 7;
         height: 100vh;
         padding-left: 20px;
-        background-image: url("../IMG-PHOTOS/landscape/yellow-cloth-fields.jpg");
+        background-image: url("../IMG-PHOTOS/landscape/black-bg.jpg");
         background-size: cover;
         position: relative;
+    }
+
+    .yellow-jacket {
+        position: absolute;
+        left: 50vw;
+        height: 100vh;
+    }
+
+    .grey-plus {
+        list-style: none;
+        position: relative;
+        height: 50px;
     }
 
     .banner .banner-effect {
