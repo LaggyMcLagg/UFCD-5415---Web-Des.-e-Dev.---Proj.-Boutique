@@ -446,7 +446,8 @@ html, body
 
     .navbar .hamburger {
         position: fixed;
-        left: 30px;
+        left: 20px;
+        top: 30px;
     }
 
     .horizontal-nav {
@@ -509,7 +510,7 @@ html, body
     
 }
 
-@media (min-width:700px) {
+@media (min-width:600px) {
       
     .navbar {
         display: grid;
@@ -532,6 +533,10 @@ html, body
         grid-area: 1 / 1 / -7 / 7;
         height: 60px;
         z-index: 1;
+    }
+
+    .navbar .hamburger {
+        top: 25px;
     }
 
     .horizontal-nav {

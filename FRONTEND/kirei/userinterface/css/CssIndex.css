@@ -308,7 +308,6 @@ body
 @media (min-width:300px) {
     .navbar {
         grid-area: 1 / 1 / -7 / 7;
-        height: 120px;
         display: flex;
         align-items: center;
         z-index: 10;
@@ -373,7 +372,7 @@ body
     }
 }
 
-@media (min-width:700px) {
+@media (min-width:600px) {
  
     .navbar {
         display: grid;
@@ -383,6 +382,7 @@ body
 
     .horizontal-nav {
         gap: 10%;
+        height: 60px;
     }
 
 }
@@ -396,6 +396,7 @@ body
 
     .horizontal-nav {
         gap: 20%;
+        height: 100px;
         position: relative;
         bottom: 35px;
         z-index: 1;
