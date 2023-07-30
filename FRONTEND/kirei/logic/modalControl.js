@@ -90,28 +90,38 @@ export async function initializeModalControl() {
       });
     }
 
+    function verifyStockModal(productId) {
+      const inStock = addToCart(productId);
+      if (!inStock) {
+        modalAddCart.setAttribute("disabled", "disabled");
+        modalAddCart.textContent = "Out of stock";
+      } else {
+        modalAddCart.removeAttribute("disabled");
+        modalAddCart.textContent = "Add to Cart";
+      }
+    }
+    
     function openModal(event) {
       modal.style.display = "flex";
-  
+    
       const card = event.currentTarget;
       const backgroundImage = card.style.backgroundImage;
       const dataId = card.getAttribute("data-id");
-  
+    
       modalContent.style.backgroundImage = backgroundImage;
       modalAddCart.setAttribute("data-id", dataId);
-  
-      modalAddCart.addEventListener('click', function () {
-        const productId = this.getAttribute('data-id');
-        const inStock= addToCart(productId);
-        if (!inStock){
-          modalAddCart.setAttribute("disabled", "disabled");
-          modalAddCart.textContent = "Out of stock";
-        }
+    
+      const productId = this.getAttribute('data-id');
+      verifyStockModal(productId);
+    
+      modalAddCart.addEventListener('click', function() {
+        verifyStockModal(productId);
       });
-
+      
       const rating = localStorage.getItem(`productRating-${dataId}`) || 0;
       updateStarColors(rating);
     }
+    
   
     function closeModal() {
       modal.style.display = "none";

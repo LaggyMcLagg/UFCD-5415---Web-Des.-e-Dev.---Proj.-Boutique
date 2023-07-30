@@ -28,7 +28,7 @@ export function addToCart(productId) {
         return false;
     }
 
-    if (cart[productId] && Number(cart[productId]) < product.quantity) {
+    if (cart[productId] < product.quantity) {
         cart[productId] += 1;
     } else if (!cart[productId] && product.quantity > 0) {
         cart[productId] = 1;

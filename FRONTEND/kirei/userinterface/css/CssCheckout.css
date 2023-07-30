@@ -17,18 +17,6 @@
     --white: #ffffff;
 }
 
-/*############# 
-
-label-out-stock-class 
-
-coupon-label-class
-
-label-receipt-class
-
-#############*/
-
-
-
 /* ################################
             RUI - INÍCIO
 ################################ */
@@ -50,6 +38,7 @@ html, body
     height: 100vh;
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: repeat(6,1fr);
+    gap: 10px 10px;
     overflow: auto;
     width: 95%;
     padding-left: 2.5%;
@@ -196,7 +185,7 @@ html, body
 /* Coupon */
 
 .coupon-position {
-    padding-bottom: 300px;
+    padding-bottom: 30px;
     padding-top: 30px;
 }
 
@@ -285,12 +274,12 @@ html, body
     
     .product {
         grid-area: 2 / 1 / 5 / 7 ;
-        margin-bottom: 10px;
+
     }
     
     .coupon {
         grid-area: 5 / 1 / 5 / 7;
-        margin-bottom: 10px;
+
     }
     
     .checkout {
@@ -331,7 +320,6 @@ html, body
     .horizontal-nav {
         position: relative;
         gap: 25%;
-        width: 97vw;
         z-index: 10;
 
     }
@@ -360,14 +348,11 @@ html, body
     }
 
     .coupon {
-        grid-area: 2 / 5 / 6 / 7;
-        margin-left: 10px;
-        margin-bottom: 10px;
+        grid-area: 2 / 5 / 3 / 7;
     }
 
     .checkout {
-        grid-area: 6 / 5 / 6 / 7;
-        margin-left: 10px;
+        grid-area: 3 / 5 / 7 / 7;
     }
 }
 

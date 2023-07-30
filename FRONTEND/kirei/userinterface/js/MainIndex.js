@@ -96,17 +96,17 @@ async function createNavbar() {
                 </svg>
                     </a></li>
                     <li>
-                    <form class="searchbar">
-                        <input type="text" placeholder="Search">
-                        <button class="submit-button" type="submit"><img src="/userinterface/photos/icons/loop-dark.png" alt="submit"></button>
+                    <form id="Search-Form" class="searchbar">
+                        <input id="Searchbar" type="text" placeholder="Search">
+                        <button class="submit-button" type="submit" type="submit"><img src="/userinterface/photos/icons/loop-dark.png" alt="submit"></button>
                     </form>
-                    <li><a href="checkout.html">
+                    <li><a href="./userinterface/html/checkout.html">
                         <img class="cart-icon" src="/userinterface/photos/icons/cart-light.png" alt="cart">
                     </a></li>
                 </ul>
                 <ul class="menu">
                     <li><a href="./userinterface/html/contact.html">Contact Us</a></li>
-                    <li><a href="./userinterface/html/gallery.html">Galeria</a></li>
+                    <li><a href="./userinterface/html/gallery.html">Gallery</a></li>
                 </ul>
             </div>
         </nav>

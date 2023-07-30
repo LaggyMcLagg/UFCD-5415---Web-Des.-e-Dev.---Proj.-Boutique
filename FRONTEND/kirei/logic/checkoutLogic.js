@@ -120,6 +120,14 @@ export function handleRemove(event) {
     document.querySelector(`#Cart-Info-${productId}`).remove();
 
     updateTotalPrice();
+
+    if (Object.keys(cart).length === 0) {
+        cart = null;
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById("Cart-Container").innerHTML = `
+            <h1>Cart is empty.</h1>
+        `;
+    }
 }
 
 export function handleAdd(event) {
@@ -229,18 +237,25 @@ export async function handleCheckout(){
 
         const data = await postCheckout(products, coupon);
 
+        const dataCoupon = await postCoupon(coupon);
+    
+        if (!dataCoupon.success) {
+            data.checkout.coupon = "";
+        }
+
         if (data.success) {
             // isto substitui ter de fazer data.checkout.id  data.checkout.coupon (...) para todos os parametros do objecto checkout
             const { products, coupon, total, discounted_total } = data.checkout;
-            const formattedProducts = JSON.parse(products).map(product => `Product ID: ${product.id}, Quantity: ${product.quantity}`).join('<br />');
+            const formattedProducts = JSON.parse(products).map(product => `<p>Product ID: ${product.id}, Quantity: ${product.quantity}</p>`).join('');
 
             const receiptHtml = `
-            <h2>Receipt</h2>
-            <p>Products:<br />${formattedProducts}</p>
-            <p>Coupon: ${coupon || 'None'}</p>
-            <p>Total: ${total}</p>
-            ${discounted_total ? `<p>Discounted Total: ${(discounted_total).toFixed(2)}</p>` : ''}
+                <h2>Receipt</h2>
+                <div>Products:${formattedProducts}</div>
+                <p>Coupon: ${coupon || 'None'}</p>
+                <p>Total: ${(total).toFixed(2)}</p>
+                ${discounted_total ? `<p>Discounted Total: ${(discounted_total).toFixed(2)}</p>` : ''}
             `;
+            
 
             receiptDiv.innerHTML = receiptHtml;
 

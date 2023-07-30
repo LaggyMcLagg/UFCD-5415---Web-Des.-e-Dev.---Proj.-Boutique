@@ -115,9 +115,9 @@ async function createNavbar() {
                 </svg>
                     </a></li>
                     <li>
-                    <form class="searchbar">
-                        <input type="text" placeholder="Search">
-                        <button class="submit-button" type="submit"><img src="../photos/icons/loop-dark.png" alt="submit"></button>
+                    <form id="Search-Form" class="searchbar">
+                    <input id="Searchbar" type="text" placeholder="Search">
+                    <button class="submit-button" type="submit" type="submit"><img src="../photos/icons/loop-dark.png" alt="submit"></button>
                     </form>
                     <li><a href="checkout.html">
                         <img class="cart-icon" src="../photos/icons/cart-light.png" alt="cart">
@@ -125,7 +125,7 @@ async function createNavbar() {
                 </ul>
                 <ul class="menu">
                     <li><a href="../../index.html">Home Page</a></li>
-                    <li><a href="gallery.html">Galeria</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -266,7 +266,7 @@ async function createModal() {
             <i class="fa-solid fa-star star" data-star="3"></i>
             <i class="fa-solid fa-star star" data-star="4"></i>
             <i class="fa-solid fa-star star" data-star="5"></i>
-            <button id="Modal-Add-Cart">Add to Cart</button>
+            <button class="button-modal-class" id="Modal-Add-Cart">Add to Cart</button>
         </div>
         </div>
     </div>`;

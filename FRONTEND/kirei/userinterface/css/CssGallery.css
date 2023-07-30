@@ -88,7 +88,7 @@ html, body
         padding-left: 2.5%;
         padding-right: 2.5%;
     }
-    
+
     .articles-div-class {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -98,7 +98,7 @@ html, body
         overflow-y: auto;
     }
 
-    .article-class 
+    .article-class
     {
         display: flex;
         flex-direction: column;
@@ -117,7 +117,7 @@ html, body
         background-color: var(--greyTransparency);
     }
 }
-    
+
 
 @media only screen and (min-width: 769px)
 {
@@ -161,7 +161,7 @@ html, body
         background-position: center;
         border-radius: 5px;
     }
-    
+
     .highlight2-class,
     .highlight3-class,
     .highlight4-class,
@@ -181,7 +181,7 @@ html, body
     .highlight2-class:hover,
     .highlight3-class:hover,
     .highlight4-class:hover,
-    .highlight5-class:hover 
+    .highlight5-class:hover
     {
     background-size: 175%;
     background-repeat: no-repeat;
@@ -200,7 +200,7 @@ html, body
         padding-right: 5%;
     }
 
-    .articles-div-class 
+    .articles-div-class
     {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -210,7 +210,7 @@ html, body
         margin-bottom: 10px;
     }
 
-    .article-class 
+    .article-class
     {
         display: flex;
         flex-direction: column;
@@ -223,7 +223,7 @@ html, body
         border-radius: 5px;
     }
 
-    .article-class:hover 
+    .article-class:hover
     {
     background-size: 175%;
     background-repeat: no-repeat;
@@ -312,7 +312,7 @@ html, body
     padding: 10px;
 }
 
-.modal-end-container button {
+.button-modal-class  {
     color: var(--black);
     background-color: transparent;
     font-family: 'Courier New', Courier, monospace;
@@ -321,7 +321,13 @@ html, body
     padding: 10px 6px 10px 6px;
 }
 
-.modal-end-container button:hover {
+.button-modal-class:active{
+    cursor: pointer;
+    color: var(--black) !important;
+    border-color: var(--black) !important;
+}
+
+.button-modal-class:hover {
     cursor: pointer;
     color: var(--yellow);
     border-color: var(--yellow);
@@ -343,7 +349,7 @@ html, body
       color: #fff;
       transition: 0.3s;
   }
-  
+
 /* ----------------------------------------------------- */
 /* NAV BAR */
 
@@ -507,16 +513,16 @@ html, body
         position: relative;
         right: calc(50% - (50% / 2));
     }
-    
+
     .modal-content {
         width: 50%;
         height: 50%;
     }
-    
+
 }
 
 @media (min-width:600px) {
-      
+
     .navbar {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
